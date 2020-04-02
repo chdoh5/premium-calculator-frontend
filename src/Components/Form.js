@@ -8,21 +8,80 @@ import WorkerResults from '../Components/WorkerResults'
 
 
 class Form extends React.Component {
+    constructor(){
+        super()
+
+        this.state={
+            timingQuestion: null
+        }
+    }
+
+handleTimingChange = (e) => {
+    this.setState({
+        timingQuestion: e.target.value
+    })
+}
 
     
     render(){
-        return (
-            <form class="container form">
-              <label class="form-label">
-              I want to enter my weight sold by:
-                <select class="select-box">
-                  <option value="year">Year</option>
-                  <option disabled value="quarter">Quarter</option>
-                  <option disabled value="month">Month</option>
-                </select>
-              </label>
-            </form>
-          );
+        const qOne = 
+        <form class="container form">
+        <label class="form-label">
+        I want to enter my weight sold by:
+          <select class="select-box" onChange={this.handleTimingChange}>
+              <option value="" disabled selected>Choose your option</option>
+              <option value="year">Year</option>
+              <option disabled value="quarter">Quarter</option>
+              <option disabled value="month">Month</option>
+          </select>
+            </label>
+            <div>
+      <label class="form-label">
+      Model Worker Per Month?
+        <input id="checkbox" type="checkbox" />
+        <span id="checkbox">Yes</span>
+      </label>
+      </div>
+      </form>
+        
+ 
+        
+      
+
+    //   const qTwo = 
+
+    
+
+
+
+        if(!this.state.timingQuestion || this.state.timingQuestion){
+            return (
+                    qOne
+                
+                // <form class="container form">
+                //   <label class="form-label">
+                //   I want to enter my weight sold by:
+                //     <select class="select-box" onChange={this.handleTimingChange}>
+                //         <option value="" disabled selected>Choose your option</option>
+                //         <option value="year">Year</option>
+                //         <option disabled value="quarter">Quarter</option>
+                //         <option disabled value="month">Month</option>
+                //     </select>
+                //   </label>
+                // </form>
+            );
+
+        } 
+        // if(this.state.timingQuestion){
+        //     return (
+        //         <form class="container form">
+        //             {qOne}<br></br>
+        //             {qTwo}
+        //         </form>
+
+
+        //     )
+        // }
     } 
 }
 

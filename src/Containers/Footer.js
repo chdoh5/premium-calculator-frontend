@@ -7,7 +7,7 @@ class Footer extends React.Component {
     
     render(){
         return (
-            <div class="footer #8bc34a light-green">
+            <div class="footer">
     
             </div>
 

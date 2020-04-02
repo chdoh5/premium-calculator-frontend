@@ -23,6 +23,8 @@ class CalcIndex extends React.Component {
             welcomeButtonClicked: true
         })
     }
+
+
     
     
     render(){
