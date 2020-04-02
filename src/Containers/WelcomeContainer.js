@@ -12,8 +12,7 @@ class WelcomeContainer extends React.Component {
     
     render(){
         return (
-            <div>
-            <Form />
+            <div >
             </div>
         )
     } 

@@ -10,7 +10,7 @@ class Header extends React.Component {
     
     render(){
         return (
-            <div  >
+            <div class="fixed_header" >
             <nav>
               <div class="nav-wrapper section #8bc34a light-green">
                 <ul class="right hide-on-med-and-down">
