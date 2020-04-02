@@ -1,5 +1,10 @@
+.App {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .header {
   padding: 60px;
+  
 }
 
  body {
@@ -23,7 +28,32 @@
     text-align: center;
   }
 
+  .welcome{
+    /* top: 124px;
+    width: 100%;
+    bottom: 80px;
+    height: 100%; */
+    /* margin-bottom: 506px;
+    position:; */
+    padding-bottom: 77px;
+    padding-top: 180px
+  }
 
+  .fixed_header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+  }
+
+  .welcome-message{
+    text-align: center;
+  }
+
+  #welcome-info-big{
+    font-size: 18px;
+  }
 
 
 

@@ -14,7 +14,7 @@ class CalcIndex extends React.Component {
         return (
             <div>
                 <Header /> 
-            <div class="Container">
+            <div class="welcome">
                 <WelcomeContainer />
             </div>
             <footer>
