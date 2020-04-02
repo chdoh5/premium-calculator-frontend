@@ -13,8 +13,7 @@ class Form extends React.Component {
     render(){
         return (
             <div>
-                <PremiumResults />
-                <WorkerResults />
+                <h2>FORMMMM</h2>
             </div>
         )
     } 

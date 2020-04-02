@@ -54,6 +54,13 @@
   #welcome-info-big{
     font-size: 18px;
   }
+   #welcome-info-small{
+     padding-top: 55px;
+   }
+  
+  #start-calculator-button{
+    top: 30px;
+  }
 
 
 
