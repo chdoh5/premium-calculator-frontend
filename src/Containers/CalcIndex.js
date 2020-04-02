@@ -27,7 +27,6 @@ class CalcIndex extends React.Component {
     
     render(){
 
-        console.log(this.state)
         if(this.state.welcomeButtonClicked===false){
             return (
                 <div>
@@ -36,7 +35,7 @@ class CalcIndex extends React.Component {
                     <WelcomeContainer handleClick={this.renderForm} />
                 </div>
                 <footer>
-                <Footer /> 
+                    <Footer /> 
                 </footer>
                 </div>
             )    
