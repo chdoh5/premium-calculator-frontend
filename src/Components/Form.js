@@ -34,14 +34,31 @@ handleTimingChange = (e) => {
               <option disabled value="quarter">Quarter</option>
               <option disabled value="month">Month</option>
           </select>
-            </label>
-            <div>
-      <label class="form-label">
-      Model Worker Per Month?
-        <input id="checkbox" type="checkbox" />
-        <span id="checkbox">Yes</span>
-      </label>
-      </div>
+        </label>
+        
+        {/* const qTwo =  */}
+        <div>
+        <label class="form-label">
+        Model Worker Per Month?
+            <input id="checkbox" type="checkbox" />
+            <span id="checkbox">Yes</span>
+        </label>
+        </div>
+<br /><br/>
+        {/* const qThree =  */}
+        <div>
+        <label class="form-label">
+        My Data is in:
+            <input  class="with-gap" name="pounds" type="radio"  />
+            <span id="radio" >Pounds</span>
+            <input  class="with-gap" name="kilograms" type="radio" />
+            <span id="radio" >Kilograms</span>
+        </label>
+        </div>
+    
+
+
+        
       </form>
         
  
