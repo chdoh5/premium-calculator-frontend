@@ -14,7 +14,12 @@ class Form extends React.Component {
         this.state={
             timingQuestion: null,
             modelWorkerBoolean: false,
-            weightInput: null
+            weightInput: null,
+            costco: 0,
+            wholeFoods: 0,
+            foodbuy: 0,
+            percentage: 0
+
         }
     }
 
@@ -36,6 +41,23 @@ handleWeightRadio = (e) => {
     })
 }
 
+handleCostcoChange = (e) => {
+    this.setState({
+        costco: e.target.value
+    })
+}
+
+handleWholeFoodsChange = (e) => {
+    this.setState({
+        wholeFoods: e.target.value
+    })
+}
+
+handleFoodbuyChange = (e) => {
+    this.setState({
+        foodbuy: e.target.value
+    })
+}
     
     render(){
         console.log(this.state)
@@ -98,7 +120,7 @@ handleWeightRadio = (e) => {
                     <td>
 
                     <div class="input-field inline ">
-                        <input class="right" type="number"/>
+                        <input onChange={this.handleCostcoChange} class="right" type="number"/>
                     </div>
                     <span class="form-label">%</span>
                     </td>
@@ -109,7 +131,7 @@ handleWeightRadio = (e) => {
                     <td>
 
                     <div class="input-field inline">
-                        <input class="right" type="number" />
+                        <input onChange={this.handleWholeFoodsChange} class="right" type="number" />
                     </div>
                         <span class="form-label">%</span>
                     </td>
@@ -120,7 +142,7 @@ handleWeightRadio = (e) => {
                     <td>
 
                     <div class="input-field inline">
-                        <input class="right" type="number" />
+                        <input onChange={this.handleFoodbuyChange} class="right" type="number" />
                     </div>
                         <span class="form-label">%</span>
                     </td>
@@ -129,8 +151,17 @@ handleWeightRadio = (e) => {
             </table>
         </div>
         
-        
+        <div class="divider"><span></span><span></span><span></span></div>
 
+        <label>
+          Pick your favorite flavor:
+          <select multiple={true}>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+          </select>
+        </label>
 
         
     </form>
