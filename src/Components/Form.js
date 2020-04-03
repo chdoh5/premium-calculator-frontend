@@ -1,5 +1,9 @@
 import React from 'react';
 // import './App.css';
+import Select from 'react-select'
+import MyComponent from './Select'
+import { commodities } from '../lookup'
+
 import PremiumResults from '../Components/PremiumResults' 
 import WorkerResults from '../Components/WorkerResults'
 
@@ -8,6 +12,8 @@ import WorkerResults from '../Components/WorkerResults'
 
 
 class Form extends React.Component {
+
+
     constructor(){
         super()
 
@@ -61,6 +67,7 @@ handleFoodbuyChange = (e) => {
     
     render(){
         console.log(this.state)
+
         const qOne = 
     <form class="container form">
         <label class="form-label">
@@ -153,15 +160,14 @@ handleFoodbuyChange = (e) => {
         
         <div class="divider"><span></span><span></span><span></span></div>
 
-        <label>
-          Pick your favorite flavor:
-          <select multiple={true}>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
-          </select>
-        </label>
+ 
+        <Select 
+        isMulti
+        name="name"
+        options={commodities}
+        className="basic-multi-select"
+        classNamePrefix="select"  />
+      
 
         
     </form>
