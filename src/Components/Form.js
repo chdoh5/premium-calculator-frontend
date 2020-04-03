@@ -12,7 +12,9 @@ class Form extends React.Component {
         super()
 
         this.state={
-            timingQuestion: null
+            timingQuestion: null,
+            modelWorkerBoolean: false,
+            weightInput: null
         }
     }
 
@@ -22,8 +24,21 @@ handleTimingChange = (e) => {
     })
 }
 
+handleWorkerCheck = (e) => {
+    this.setState({
+        modelWorkerBoolean: e.target.checked
+    })
+}
+
+handleWeightRadio = (e) => {
+    this.setState({
+        weightInput: e.target.value
+    })
+}
+
     
     render(){
+        console.log(this.state)
         const qOne = 
         <form class="container form">
         <label class="form-label">
@@ -37,7 +52,7 @@ handleTimingChange = (e) => {
         </label>
         
         {/* const qTwo =  */}
-        <div>
+        <div onClick={this.handleWorkerCheck}>
         <label class="form-label">
         Model Worker Per Month?
             <input id="checkbox" type="checkbox" />
@@ -49,13 +64,21 @@ handleTimingChange = (e) => {
         <div>
         <label class="form-label">
         My Data is in:
-            <input  class="with-gap" name="pounds" type="radio"  />
-            <span id="radio" >Pounds</span>
-            <input  class="with-gap" name="kilograms" type="radio" />
-            <span id="radio" >Kilograms</span>
+        <label class="form-label">
+            <input onClick={this.handleWeightRadio} value="pounds" class="with-gap" name="weightQ"  type="radio"  />
+            <span  id="radio" >Pounds</span>
+            </label>
+            <label class="form-label" >
+            <input onClick={this.handleWeightRadio} value="kilograms" class="with-gap" name="weightQ"  type="radio" />
+            <span  id="radio" >Kilograms</span>
+            </label>
         </label>
         </div>
     
+
+        <div class="divider"><span></span><span></span><span></span></div>
+
+
 
 
         
