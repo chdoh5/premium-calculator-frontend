@@ -40,7 +40,7 @@ handleWeightRadio = (e) => {
     render(){
         console.log(this.state)
         const qOne = 
-        <form class="container form">
+    <form class="container form">
         <label class="form-label">
         I want to enter my weight sold by:
           <select class="select-box" onChange={this.handleTimingChange}>
@@ -78,11 +78,62 @@ handleWeightRadio = (e) => {
 
         <div class="divider"><span></span><span></span><span></span></div>
 
+        <div>
+            <label class="form-label">
+                Enter rough annual % sold to each vendor
+            </label>
+        <br /><br/>
+            <table class="centered">
+                <thead>
+                    <tr>
+                    <th>Vendor</th>
+              
+                    <th>% of Annual Sales</th>
+                    </tr>
+                </thead>
 
+                <tbody>
+                    <tr>
+                    <td>Costco</td>
+                    <td>
+
+                    <div class="input-field inline ">
+                        <input class="right" type="number"/>
+                    </div>
+                    <span class="form-label">%</span>
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <td>Whole Foods</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input class="right" type="number" />
+                    </div>
+                        <span class="form-label">%</span>
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <td>Foodbuy</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input class="right" type="number" />
+                    </div>
+                        <span class="form-label">%</span>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        
 
 
         
-      </form>
+    </form>
         
  
         
