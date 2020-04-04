@@ -2,6 +2,7 @@ import React from 'react';
 // import './App.css';
 import Select from 'react-select'
 import MyComponent from './Select'
+import WeightTable from './WeightTable'
 import { commodities } from '../lookup'
 
 import PremiumResults from '../Components/PremiumResults' 
@@ -73,7 +74,7 @@ selectCommodities = (e) => {
 }
     
     render(){
-        console.log(this.state)
+        // console.log(this.state)
 
         const qOne = 
     <form class="container form">
@@ -167,7 +168,7 @@ selectCommodities = (e) => {
         
         <div class="divider"><span></span><span></span><span></span></div>
             <label class="form-label">
-                Select Commodities sold
+                Select commodities sold
             </label>
             <Select 
                 onChange={this.selectCommodities}
@@ -176,8 +177,23 @@ selectCommodities = (e) => {
                 options={commodities}
                 className="basic-multi-select"
                 classNamePrefix="select"  />
-            
+        <div class="divider"><span></span><span></span><span></span></div>
 
+            <label class="form-label">
+                Enter weight of commodities sold annually
+            </label>
+            <br /><br/>
+            <table class="centered striped">
+                <thead>
+                    <tr>
+                    <th>Commodity Name</th>
+              
+                    <th>Annual Weight Sold</th>
+                    </tr>
+                </thead>
+
+                <WeightTable commoditiesSold={this.state.commoditiesSold}/>
+            </table>
       
 
         
