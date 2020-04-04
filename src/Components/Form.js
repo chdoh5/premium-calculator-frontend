@@ -24,7 +24,8 @@ class Form extends React.Component {
             costco: 0,
             wholeFoods: 0,
             foodbuy: 0,
-            percentage: 0
+            percentage: 0, 
+            commoditiesSold: []
 
         }
     }
@@ -62,6 +63,12 @@ handleWholeFoodsChange = (e) => {
 handleFoodbuyChange = (e) => {
     this.setState({
         foodbuy: e.target.value
+    })
+}
+
+selectCommodities = (e) => {
+    this.setState({
+        commoditiesSold: e
     })
 }
     
@@ -159,14 +166,18 @@ handleFoodbuyChange = (e) => {
         </div>
         
         <div class="divider"><span></span><span></span><span></span></div>
+            <label class="form-label">
+                Select Commodities sold
+            </label>
+            <Select 
+                onChange={this.selectCommodities}
+                isMulti
+                name="name"
+                options={commodities}
+                className="basic-multi-select"
+                classNamePrefix="select"  />
+            
 
- 
-        <Select 
-        isMulti
-        name="name"
-        options={commodities}
-        className="basic-multi-select"
-        classNamePrefix="select"  />
       
 
         
