@@ -7,7 +7,7 @@ class WeightTable extends React.Component {
     renderWeightTable = () => {
         const comNameArray = this.props.commoditiesSold.map(comm => comm.label)
         return comNameArray.map(name => {
-            return <WeightTableRow name={name} />
+            return <WeightTableRow collectWeights={this.props.collectWeights} name={name} />
         })
             // <WeightTableRow
 

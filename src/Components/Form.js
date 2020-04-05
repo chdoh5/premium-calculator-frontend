@@ -26,7 +26,8 @@ class Form extends React.Component {
             wholeFoods: 0,
             foodbuy: 0,
             percentage: 0, 
-            commoditiesSold: []
+            commoditiesSold: [], 
+            prices: []
 
         }
     }
@@ -72,9 +73,17 @@ selectCommodities = (e) => {
         commoditiesSold: e
     })
 }
+
+collectWeights = (e, name) => {
+    const commodity = this.state.commoditiesSold.filter(comm => comm.label === name)
+    const price = commodity.map(com => com.price)
+    this.setState({
+        prices: [...this.state.prices, price*e.target.value]
+    })
+}
     
     render(){
-        // console.log(this.state)
+        console.log(this.state)
 
         const qOne = 
     <form class="container form">
@@ -192,7 +201,7 @@ selectCommodities = (e) => {
                     </tr>
                 </thead>
 
-                <WeightTable commoditiesSold={this.state.commoditiesSold}/>
+                <WeightTable collectWeights={this.collectWeights} commoditiesSold={this.state.commoditiesSold}/>
             </table>
       
 
