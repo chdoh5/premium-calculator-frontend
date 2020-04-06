@@ -12,7 +12,7 @@ class Header extends React.Component {
         return (
             <div class="fixed_header" >
             <nav>
-              <div class="nav-wrapper section #8bc34a light-green">
+              <div class="nav-wrapper section nav">
                 <ul class="right hide-on-med-and-down">
                   <li><a href="sass.html">Español</a></li>
                   <li><a href="badges.html">Login</a></li>

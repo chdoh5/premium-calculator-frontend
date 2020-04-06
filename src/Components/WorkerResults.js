@@ -11,7 +11,7 @@ class WorkerResults extends React.Component {
     render(){
         return (
             <div>
-
+            GOODBYE
             </div>
         )
     } 
