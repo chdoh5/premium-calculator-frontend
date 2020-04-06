@@ -5,8 +5,7 @@ import MyComponent from './Select'
 import WeightTable from './WeightTable'
 import { commodities } from '../lookup'
 
-import PremiumResults from '../Components/PremiumResults' 
-import WorkerResults from '../Components/WorkerResults'
+import ResultsContainer from '../Containers/ResultsContainer' 
 
 
 
@@ -21,15 +20,15 @@ class Form extends React.Component {
         this.state={
             timingQuestion: null,
             modelWorkerBoolean: false,
-            weightInput: null,
             costco: 0,
             wholeFoods: 0,
             foodbuy: 0,
             percentage: 0, 
             commoditiesSold: [], 
             prices: [],
-            fixed: [],
-            weights: {}
+            weights: {}, 
+            premium: 0,
+            submitted: false
 
         }
     }
@@ -54,28 +53,29 @@ handleWeightRadio = (e) => {
 
 handleCostcoChange = (e) => {
     this.setState({
-        costco: e.target.value
+        costco: parseInt(e.target.value)
     })
 }
 
 handleWholeFoodsChange = (e) => {
     this.setState({
-        wholeFoods: e.target.value
+        wholeFoods: parseInt(e.target.value)
     })
 }
 
 handleFoodbuyChange = (e) => {
     this.setState({
-        foodbuy: e.target.value
+        foodbuy: parseInt(e.target.value),
+        percentage: (this.state.wholeFoods + this.state.costco + this.state.foodbuy)
     })
 }
 
 selectCommodities = (e) => {
-    const p = e.map(x => x.price)
+    // const p = e.map(x => x.price)
    
     this.setState({
         commoditiesSold: e,
-        prices: p
+        // prices: p
     })
 }
 
@@ -90,24 +90,36 @@ collectWeights = (e, name) => {
         this.setState({
             prices: newWeights,
         })
+    this.calculatePremium()
 }
 
 
 
 
 calculatePremium = (e) => {
-    e.preventDefault()
-    console.log(e.target.value)
+// console.log(this.state.prices)
+let sum = 0;
+for (let key in this.state.prices) {
+  sum += this.state.prices[key]
+  this.setState({
+      premium: sum
+  })
+}
 
-    // e.preventDefault()
-    // const totalPremium = this.state.prices.reduce((result, number) => result+number)
-    // console.log(totalPremium)
+}
+
+
+generateResults = (e) => {
+    e.preventDefault()
+    this.setState({
+        submitted: true
+    })
 }
     
     render(){
-        console.log(this.state.prices)
-
-        const qOne = 
+        console.log(this.state.premium)
+if(this.state.submitted === false){
+       return(
     <form class="container form">
         <label class="form-label">
         I want to enter my weight sold by:
@@ -210,6 +222,7 @@ calculatePremium = (e) => {
                 classNamePrefix="select"  />
         <div class="divider"><span></span><span></span><span></span></div>
 
+        
             <label class="form-label">
                 Enter weight of commodities sold annually
             </label>
@@ -222,54 +235,159 @@ calculatePremium = (e) => {
                     <th>Annual Weight Sold</th>
                     </tr>
                 </thead>
-
-                <WeightTable collectWeights={this.collectWeights} commoditiesSold={this.state.commoditiesSold}/>
-            </table>
-      
-      <button onClick={this.calculatePremium}>click me</button>
-
-        
-    </form>
-        
- 
-        
-      
-
-    //   const qTwo = 
-
-    
-
-
-
-        if(!this.state.timingQuestion || this.state.timingQuestion){
-            return (
-                    qOne
+ {this.state.commoditiesSold ? <WeightTable collectWeights={this.collectWeights} commoditiesSold={this.state.commoditiesSold}/> 
+ : null }
                 
-                // <form class="container form">
-                //   <label class="form-label">
-                //   I want to enter my weight sold by:
-                //     <select class="select-box" onChange={this.handleTimingChange}>
-                //         <option value="" disabled selected>Choose your option</option>
-                //         <option value="year">Year</option>
-                //         <option disabled value="quarter">Quarter</option>
-                //         <option disabled value="month">Month</option>
-                //     </select>
-                //   </label>
-                // </form>
-            );
-
-        } 
-        // if(this.state.timingQuestion){
-        //     return (
-        //         <form class="container form">
-        //             {qOne}<br></br>
-        //             {qTwo}
-        //         </form>
+            </table>
+      {/* <button onClick={this.calculatePremium}>click me</button> */}
+      <div class="divider"><span></span><span></span><span></span></div>
 
 
-        //     )
-        // }
-    } 
+      <div>
+            <label class="form-label">
+                Enter total workforce size each month (*optional)
+            </label>
+        <br /><br/>
+            <table id="worker-table" class="centered highlight">
+                <thead>
+                    <tr>
+                    <th>Month</th>
+              
+                    <th>Total Workers Present</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                    <td>January</td>
+                    <td>
+
+                    <div class="input-field inline ">
+                        <input  class="right" type="number"/>
+                    </div>
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <td>Februrary</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input  class="right" type="number" />
+                    </div>
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <td>March</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input class="right" type="number" />
+                    </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>April</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input class="right" type="number" />
+                    </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>May</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input class="right" type="number" />
+                    </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>June</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input class="right" type="number" />
+                    </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>July</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input class="right" type="number" />
+                    </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>August</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input class="right" type="number" />
+                    </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>September</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input class="right" type="number" />
+                    </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>October</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input class="right" type="number" />
+                    </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>November</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input class="right" type="number" />
+                    </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>December</td>
+                    <td>
+
+                    <div class="input-field inline">
+                        <input class="right" type="number" />
+                    </div>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <button type="submit" onClick={this.generateResults} class="waves-effect waves-light btn-large">Generate Results</button>
+        </div>
+    </form>
+
+    )
+    } else {
+        return(
+            <ResultsContainer
+            timingQuestion={this.state.timingQuestion}
+            modelWorkerBoolean={this.state.modelWorkerBoolean}
+            percentage={this.state.percentage}
+            premium={this.state.premium}
+            />
+        )
+    }
+}
 }
 
 

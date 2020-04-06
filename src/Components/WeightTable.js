@@ -4,6 +4,7 @@ import WeightTableRow from './WeightTableRow'
 
 class WeightTable extends React.Component {
 
+   
     renderWeightTable = () => {
         const comNameArray = this.props.commoditiesSold.map(comm => comm.label)
         return comNameArray.map(name => {
@@ -17,7 +18,7 @@ class WeightTable extends React.Component {
     
     
     render(){
-
+        
         // console.log(this.props.commoditiesSold)
         return (
         
