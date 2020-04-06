@@ -27,7 +27,9 @@ class Form extends React.Component {
             foodbuy: 0,
             percentage: 0, 
             commoditiesSold: [], 
-            prices: []
+            prices: [],
+            fixed: [],
+            weights: {}
 
         }
     }
@@ -69,21 +71,41 @@ handleFoodbuyChange = (e) => {
 }
 
 selectCommodities = (e) => {
+    const p = e.map(x => x.price)
+   
     this.setState({
-        commoditiesSold: e
+        commoditiesSold: e,
+        prices: p
     })
 }
 
 collectWeights = (e, name) => {
+    
     const commodity = this.state.commoditiesSold.filter(comm => comm.label === name)
     const price = commodity.map(com => com.price)
-    this.setState({
-        prices: [...this.state.prices, price*e.target.value]
-    })
+    
+        let newWeights = this.state.weights
+        newWeights[name] = e.target.value*price
+        
+        this.setState({
+            prices: newWeights,
+        })
+}
+
+
+
+
+calculatePremium = (e) => {
+    e.preventDefault()
+    console.log(e.target.value)
+
+    // e.preventDefault()
+    // const totalPremium = this.state.prices.reduce((result, number) => result+number)
+    // console.log(totalPremium)
 }
     
     render(){
-        console.log(this.state)
+        console.log(this.state.prices)
 
         const qOne = 
     <form class="container form">
@@ -204,6 +226,7 @@ collectWeights = (e, name) => {
                 <WeightTable collectWeights={this.collectWeights} commoditiesSold={this.state.commoditiesSold}/>
             </table>
       
+      <button onClick={this.calculatePremium}>click me</button>
 
         
     </form>
