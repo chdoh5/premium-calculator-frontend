@@ -10,12 +10,17 @@ class ResultsContainer extends React.Component {
     render(){
         return (
             <div >
-            <h2>Results Container</h2>
+            {/* <h6>Results Container</h6> */}
                 <PremiumResults
                     timingQuestion={this.props.timingQuestion}
                     modelWorkerBoolean={this.props.modelWorkerBoolean}
                     percentage={this.props.percentage}
-                    premium={this.props.premium} />
+                    premium={this.props.premium}
+                    prices={this.props.prices} 
+                    commoditiesSold={this.props.commoditiesSold}
+                    premNoName={this.props.premNoName}
+
+                    />
 
                     
                 <WorkerResults />

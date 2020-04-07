@@ -17,18 +17,35 @@ class Form extends React.Component {
     constructor(){
         super()
 
+        // this.state={
+        //     timingQuestion: null,
+        //     modelWorkerBoolean: false,
+        //     costco: 0,
+        //     wholeFoods: 0,
+        //     foodbuy: 0,
+        //     percentage: 0, 
+        //     commoditiesSold: [], 
+        //     prices: [],
+        //     weights: {}, 
+        //     premium: 0,
+        //     submitted: false,
+        //     names: [], 
+        //     premNoName: []
+
+        // }
+
         this.state={
-            timingQuestion: null,
-            modelWorkerBoolean: false,
-            costco: 0,
-            wholeFoods: 0,
-            foodbuy: 0,
-            percentage: 0, 
-            commoditiesSold: [], 
-            prices: [],
-            weights: {}, 
-            premium: 0,
-            submitted: false
+            costco: "10",
+            wholeFoods: "5",
+            foodbuy: "5",
+            percentage: 20,
+            commoditiesSold: [{label: "Apple", value: "Apple", price: 0.015}, {label: "Pea", value: "Pea", price: 0.02}],
+            prices: {Apple: 15000, Pea: 40000},
+            weights: {Apple: 15000, Pea: 40000},
+            premium: 55000,
+            submitted: true,
+            weightInput: "pounds", 
+            premNoName: [15000, 40000]
 
         }
     }
@@ -53,28 +70,36 @@ handleWeightRadio = (e) => {
 
 handleCostcoChange = (e) => {
     this.setState({
-        costco: parseInt(e.target.value)
+        costco: e.target.value
+
     })
 }
 
 handleWholeFoodsChange = (e) => {
     this.setState({
-        wholeFoods: parseInt(e.target.value)
+        wholeFoods: e.target.value
+
     })
 }
 
 handleFoodbuyChange = (e) => {
     this.setState({
-        foodbuy: parseInt(e.target.value),
-        percentage: (this.state.wholeFoods + this.state.costco + this.state.foodbuy)
+        foodbuy: e.target.value
+    })
+}
+
+getPercentage = () => {
+    this.setState({
+        percentage: parseInt(this.state.costco) + parseInt(this.state.wholeFoods) + parseInt(this.state.foodbuy)
     })
 }
 
 selectCommodities = (e) => {
-    // const p = e.map(x => x.price)
+    const names = e.map(x => x.value)
    
     this.setState({
-        commoditiesSold: e,
+        commoditiesSold: e, 
+        
         // prices: p
     })
 }
@@ -86,9 +111,11 @@ collectWeights = (e, name) => {
     
         let newWeights = this.state.weights
         newWeights[name] = e.target.value*price
-        
+
         this.setState({
             prices: newWeights,
+            premNoName: Object.values(this.state.prices)
+            
         })
     this.calculatePremium()
 }
@@ -117,7 +144,7 @@ generateResults = (e) => {
 }
     
     render(){
-        console.log(this.state.premium)
+        console.log(this.state)
 if(this.state.submitted === false){
        return(
     <form class="container form">
@@ -149,7 +176,7 @@ if(this.state.submitted === false){
             <span  id="radio" >Pounds</span>
             </label>
             <label class="form-label" >
-            <input onClick={this.handleWeightRadio} value="kilograms" class="with-gap" name="weightQ"  type="radio" />
+            <input disabled onClick={this.handleWeightRadio} value="kilograms" class="with-gap" name="weightQ"  type="radio" />
             <span  id="radio" >Kilograms</span>
             </label>
         </label>
@@ -178,7 +205,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline ">
-                        <input onChange={this.handleCostcoChange} class="right" type="number"/>
+                        <input  value={this.state.costco} onKeyUp={this.getPercentage} onChange={this.handleCostcoChange} class="right " type="number"/>
                     </div>
                     <span class="form-label">%</span>
                     </td>
@@ -189,7 +216,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input onChange={this.handleWholeFoodsChange} class="right" type="number" />
+                        <input value={this.state.wholeFoods} onKeyUp={this.getPercentage}  onChange={this.handleWholeFoodsChange} class="right" type="number" />
                     </div>
                         <span class="form-label">%</span>
                     </td>
@@ -200,7 +227,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input onChange={this.handleFoodbuyChange} class="right" type="number" />
+                        <input value={this.state.foodbuy} onKeyUp={this.getPercentage}  onChange={this.handleFoodbuyChange} class="right" type="number" />
                     </div>
                         <span class="form-label">%</span>
                     </td>
@@ -248,7 +275,7 @@ if(this.state.submitted === false){
                 Enter total workforce size each month (*optional)
             </label>
         <br /><br/>
-            <table id="worker-table" class="centered highlight">
+            <table align="left"id="worker-table-left" class="centered highlight">
                 <thead>
                     <tr>
                     <th>Month</th>
@@ -314,6 +341,18 @@ if(this.state.submitted === false){
                     </div>
                     </td>
                     </tr>
+            </tbody>
+            </table>
+
+            <table align="right" id="worker-table-right" class="centered highlight">
+                <thead>
+                    <tr>
+                    <th>Month</th>
+              
+                    <th>Total Workers Present</th>
+                    </tr>
+                </thead>
+            <tbody>
                     <tr>
                     <td>July</td>
                     <td>
@@ -372,7 +411,7 @@ if(this.state.submitted === false){
             </table>
         </div>
         <div>
-            <button type="submit" onClick={this.generateResults} class="waves-effect waves-light btn-large">Generate Results</button>
+            <button type="submit" onClick={this.generateResults} id="start-calculator-button" class="waves-effect waves-light btn-large">Generate Results</button>
         </div>
     </form>
 
@@ -384,6 +423,9 @@ if(this.state.submitted === false){
             modelWorkerBoolean={this.state.modelWorkerBoolean}
             percentage={this.state.percentage}
             premium={this.state.premium}
+            prices={this.state.prices}
+            commoditiesSold={this.state.commoditiesSold}
+            premNoName={this.state.premNoName}
             />
         )
     }
