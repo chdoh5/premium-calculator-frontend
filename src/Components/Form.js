@@ -5,6 +5,8 @@ import MyComponent from './Select'
 import WeightTable from './WeightTable'
 import { commodities } from '../lookup'
 
+
+
 import ResultsContainer from '../Containers/ResultsContainer' 
 
 
@@ -17,37 +19,41 @@ class Form extends React.Component {
     constructor(){
         super()
 
-        // this.state={
-        //     timingQuestion: null,
-        //     modelWorkerBoolean: false,
-        //     costco: 0,
-        //     wholeFoods: 0,
-        //     foodbuy: 0,
-        //     percentage: 0, 
-        //     commoditiesSold: [], 
-        //     prices: [],
-        //     weights: {}, 
-        //     premium: 0,
-        //     submitted: false,
-        //     names: [], 
-        //     premNoName: []
-
-        // }
-
         this.state={
-            costco: "10",
-            wholeFoods: "5",
-            foodbuy: "5",
-            percentage: .20,
-            commoditiesSold: [{label: "Apple", value: "Apple", price: 0.015}, {label: "Pea", value: "Pea", price: 0.02}],
-            prices: {Apple: 15000, Pea: 40000},
-            weights: {Apple: 15000, Pea: 40000},
-            premium: 55000,
-            submitted: true,
-            weightInput: "pounds", 
-            premNoName: [15000, 40000]
+            timingQuestion: null,
+            modelWorkerBoolean: false,
+            costco: 0,
+            wholeFoods: 0,
+            foodbuy: 0,
+            percentage: 0, 
+            commoditiesSold: [], 
+            prices: [],
+            weights: {}, 
+            premium: 0,
+            submitted: false,
+            names: [], 
+            premNoName: []
 
         }
+
+        // this.state={
+        //     costco: "10",
+        //     wholeFoods: "5",
+        //     foodbuy: "5",
+        //     percentage: .20,
+        //     commoditiesSold: [{label: "Apple", value: "Apple", price: 0.015}, {label: "Pea", value: "Pea", price: 0.02}],
+        //     prices: {Apple: 15000, Pea: 40000},
+        //     weights: {Apple: 15000, Pea: 40000},
+        //     premium: 55000,
+        //     submitted: true,
+        //     weightInput: "pounds", 
+        //     premNoName: [15000, 40000]
+
+        // }
+    }
+
+currencyFormat=(num)=> {
+    return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     }
 
 handleTimingChange = (e) => {

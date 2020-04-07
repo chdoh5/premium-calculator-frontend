@@ -1,4 +1,5 @@
 import React from 'react';
+
 // import './App.css';
 
 
@@ -6,6 +7,11 @@ import React from 'react';
 
 
 class PremiumResults extends React.Component {
+    currencyFormat=(num)=> {
+        return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+     }
+
+
     
 renderTable = () => {
 return (
@@ -26,10 +32,23 @@ return (
         <tr></tr>
             <tr id="grand-total-row">
                 <td>Grand Total:</td>
-                <td>{(this.props.premium)*(this.props.percentage)*.03} </td>
-                <td>{(this.props.premium)*(this.props.percentage)*.1}    </td>
-                <td>{(this.props.premium)*(this.props.percentage)*.87}    </td>
-                <td>{(this.props.premium)*(this.props.percentage)}    </td>
+               <td>{((this.props.premium)*(this.props.percentage)*.03).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>
+                <td>{((this.props.premium)*(this.props.percentage)*.1).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>
+                <td>{((this.props.premium)*(this.props.percentage)*.87).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>
+                <td>{((this.props.premium)*(this.props.percentage)).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>
+            
             </tr>
         
     </tbody>
@@ -50,10 +69,22 @@ generateFirstColumn = () => {
       names.map(name => {
        return <tr>  
                 <td>{name}</td>
-                <td>{(prices[name]*this.props.percentage)*.03}    </td>
-                <td>{(prices[name]*this.props.percentage)*.1}    </td>
-                <td>{(prices[name]*this.props.percentage)*.87}    </td>
-                <td>{(prices[name]*this.props.percentage)}</td>
+                <td>{((prices[name]*this.props.percentage)*.03).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>
+                <td>{((prices[name]*this.props.percentage)*.1).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>
+                <td>{((prices[name]*this.props.percentage)*.87).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>
+                <td>{((prices[name]*this.props.percentage)).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>
             </tr>
 
      })
