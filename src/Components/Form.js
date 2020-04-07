@@ -38,7 +38,7 @@ class Form extends React.Component {
             costco: "10",
             wholeFoods: "5",
             foodbuy: "5",
-            percentage: 20,
+            percentage: .20,
             commoditiesSold: [{label: "Apple", value: "Apple", price: 0.015}, {label: "Pea", value: "Pea", price: 0.02}],
             prices: {Apple: 15000, Pea: 40000},
             weights: {Apple: 15000, Pea: 40000},
@@ -90,7 +90,7 @@ handleFoodbuyChange = (e) => {
 
 getPercentage = () => {
     this.setState({
-        percentage: parseInt(this.state.costco) + parseInt(this.state.wholeFoods) + parseInt(this.state.foodbuy)
+        percentage: (parseInt(this.state.costco) + parseInt(this.state.wholeFoods) + parseInt(this.state.foodbuy))*.01
     })
 }
 

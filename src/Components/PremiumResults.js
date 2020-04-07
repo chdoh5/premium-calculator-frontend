@@ -22,6 +22,15 @@ return (
     <tbody>
         
             {this.generateFirstColumn()}
+
+        <tr></tr>
+            <tr id="grand-total-row">
+                <td>Grand Total:</td>
+                <td>{(this.props.premium)*(this.props.percentage)*.03} </td>
+                <td>{(this.props.premium)*(this.props.percentage)*.1}    </td>
+                <td>{(this.props.premium)*(this.props.percentage)*.87}    </td>
+                <td>{(this.props.premium)*(this.props.percentage)}    </td>
+            </tr>
         
     </tbody>
     {/* {this.generateTable()} */}
@@ -40,21 +49,25 @@ generateFirstColumn = () => {
  return (
       names.map(name => {
        return <tr>  
-                <td>{name}</td> 
-                <td>{prices[name]}</td>
+                <td>{name}</td>
+                <td>{(prices[name]*this.props.percentage)*.03}    </td>
+                <td>{(prices[name]*this.props.percentage)*.1}    </td>
+                <td>{(prices[name]*this.props.percentage)*.87}    </td>
+                <td>{(prices[name]*this.props.percentage)}</td>
             </tr>
+
      })
- )
+    )
 }
 
-generateSecondColumn = () => {
-    const prices = this.props.premNoName
-   return (
-        prices.map(price => {
-            return <td>{price}</td>
-        })
-   )
-}
+// generateSecondColumn = () => {
+//     const prices = this.props.premNoName
+//    return (
+//         prices.map(price => {
+//             return <td>{price}</td>
+//         })
+//    )
+// }
 
 /* <tbody>
 <tr>
@@ -66,7 +79,7 @@ generateSecondColumn = () => {
 
 
     render(){
-        debugger
+        
         
         return (
             <div class="premium-message" >
