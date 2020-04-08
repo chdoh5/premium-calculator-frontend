@@ -281,7 +281,7 @@ if(this.state.submitted === false){
                 Enter total workforce size each month (*optional)
             </label>
         <br /><br/>
-            <table align="left"id="worker-table-left" class="centered highlight">
+            <table align="left"id="worker-table-left" class="centered ">
                 <thead>
                     <tr>
                     <th>Month</th>
@@ -350,7 +350,7 @@ if(this.state.submitted === false){
             </tbody>
             </table>
 
-            <table align="right" id="worker-table-right" class="centered highlight">
+            <table align="right" id="worker-table-right" class="centered ">
                 <thead>
                     <tr>
                     <th>Month</th>
@@ -417,7 +417,7 @@ if(this.state.submitted === false){
             </table>
         </div>
         <div>
-            <button type="submit" onClick={this.generateResults} id="start-calculator-button" class="waves-effect waves-light btn-large">Generate Results</button>
+            <button onClick={this.generateResults} id="start-calculator-button" className=" btn-large generate-results-button">Generate Results</button>
         </div>
     </form>
 

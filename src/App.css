@@ -67,6 +67,12 @@
     background-color:#20301A
   }
 
+  #start-calculator-button:hover{
+    top:30px;
+    background-color: #314928;
+    box-shadow: 0 6px 6px 0 rgba(0,0,0,0.14), 0 6px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+  }
+
   .form{
     text-align: center;
     padding-top: 30px;
@@ -131,6 +137,7 @@
   font-weight:bold;
 
 }
+
    
 
   /* ---------- */
