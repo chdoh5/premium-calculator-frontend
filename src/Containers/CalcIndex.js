@@ -30,7 +30,7 @@ class CalcIndex extends React.Component {
     
     render(){
 
-        if(this.state.welcomeButtonClicked===false){
+        if(!this.state.welcomeButtonClicked===false){
             return (
                 <div>
                     <Header /> 

@@ -111,12 +111,14 @@ selectCommodities = (e) => {
 }
 
 collectWeights = (e, name) => {
-    
+    // parseInt(this.state.number.split(",").join())
+    let x = e.target.value.toString()
+    let y = parseInt(x.split().join().replace(/,/g, ''))
     const commodity = this.state.commoditiesSold.filter(comm => comm.label === name)
     const price = commodity.map(com => com.price)
     
         let newWeights = this.state.weights
-        newWeights[name] = e.target.value*price
+        newWeights[name] = y*price
 
         this.setState({
             prices: newWeights,
