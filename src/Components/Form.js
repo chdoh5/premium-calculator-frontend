@@ -127,6 +127,7 @@ collectWeights = (e, name) => {
         })
     this.calculatePremium()
 }
+// hellooooo
 
 
 
