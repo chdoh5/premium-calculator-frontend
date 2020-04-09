@@ -9,24 +9,41 @@ class WeightTableRow extends React.Component {
 
     render(){
 
+        if(this.props.weightInput==="pounds") {
+            return (
+                <tr>
+                <td>{this.props.name}</td>
+                <td>
+                <div class="input-field inline">
+                
+    
+                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                   
+                </div>
+                
+                    <span>lbs</span>
+                </td>
+                </tr>
+            )
 
-        return (
-            <tr>
-            <td>{this.props.name}</td>
-            <td>
-            <div class="input-field inline">
-            
+        }else {
+            return (
+                <tr>
+                <td>{this.props.name}</td>
+                <td>
+                <div class="input-field inline">
+                
+    
+                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                   
+                </div>
+                
+                    <span>kg</span>
+                </td>
+                </tr>
+            )
+        }
 
-                <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
-               
-            </div>
-            
-                <span>lbs</span>
-            </td>
-            </tr>
-
-
-        )
     } 
 }
 

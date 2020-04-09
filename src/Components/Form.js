@@ -15,13 +15,13 @@ import ResultsContainer from '../Containers/ResultsContainer'
 
 class Form extends React.Component {
 
-
     constructor(){
         super()
 
         this.state={
             timingQuestion: null,
             modelWorkerBoolean: false,
+            weightInput: null,
             costco: 0,
             wholeFoods: 0,
             foodbuy: 0,
@@ -32,7 +32,8 @@ class Form extends React.Component {
             premium: 0,
             submitted: false,
             names: [], 
-            premNoName: []
+            // premNoName: [], 
+            // commodities: commodities
 
         }
 
@@ -70,7 +71,11 @@ handleWorkerCheck = (e) => {
 
 handleWeightRadio = (e) => {
     this.setState({
-        weightInput: e.target.value
+        weightInput: e.target.value ,
+        commoditiesSold: [], 
+        prices: [], 
+        weights: {}, 
+        premium: 0
     })
 }
 
@@ -100,40 +105,65 @@ getPercentage = () => {
     })
 }
 
+weightValidation = () => {
+    if(this.state.weightInput===null){
+        alert("Please enter pounds or kilograms")
+    }
+}
+
 selectCommodities = (e) => {
-    const names = e.map(x => x.value)
-   
-    this.setState({
-        commoditiesSold: e, 
-        
-        // prices: p
-    })
+
+ this.setState({
+     commoditiesSold: e
+ })
+
+ this.determinePremium(e)
+
+}
+
+determinePremium = (e) => {
+  if(!e[1])
+  this.setState({
+      premium:0,
+      prices:[],
+      weights:{}
+  })
 }
 
 collectWeights = (e, name) => {
+  
     // parseInt(this.state.number.split(",").join())
     let x = e.target.value.toString()
     let y = parseInt(x.split().join().replace(/,/g, ''))
     const commodity = this.state.commoditiesSold.filter(comm => comm.label === name)
     const price = commodity.map(com => com.price)
-    
+    const kPrice = price*2.20462
+    if(this.state.weightInput==="pounds"){
         let newWeights = this.state.weights
         newWeights[name] = y*price
-
+    
         this.setState({
             prices: newWeights,
-            premNoName: Object.values(this.state.prices)
+            // premNoName: Object.values(this.state.prices)
             
         })
+    }else {
+        let newWeights = this.state.weights
+        newWeights[name] = y*kPrice
+    
+        this.setState({
+            prices: newWeights,
+            // premNoName: Object.values(this.state.prices)
+            
+        })
+    }
+
     this.calculatePremium()
 }
-// hellooooo
-
-
 
 
 calculatePremium = (e) => {
-// console.log(this.state.prices)
+
 let sum = 0;
 for (let key in this.state.prices) {
   sum += this.state.prices[key]
@@ -142,6 +172,16 @@ for (let key in this.state.prices) {
   })
 }
 
+}
+
+clearSelect = (e) => {
+    console.log(e.target)
+    // this.setState({
+    //     commoditiesSold: [],
+    //     premium: 0,
+    //     prices: [],
+    //     weights: {}
+    // })
 }
 
 
@@ -153,6 +193,7 @@ generateResults = (e) => {
 }
     
     render(){
+
         console.log(this.state)
 if(this.state.submitted === false){
        return(
@@ -185,7 +226,7 @@ if(this.state.submitted === false){
             <span  id="radio" >Pounds</span>
             </label>
             <label class="form-label" >
-            <input disabled onClick={this.handleWeightRadio} value="kilograms" class="with-gap" name="weightQ"  type="radio" />
+            <input  onClick={this.handleWeightRadio} value="kilograms" class="with-gap" name="weightQ"  type="radio" />
             <span  id="radio" >Kilograms</span>
             </label>
         </label>
@@ -249,15 +290,25 @@ if(this.state.submitted === false){
             <label class="form-label">
                 Select commodities sold
             </label>
+            <div onClick={this.weightValidation} >
             <Select 
+                
                 onChange={this.selectCommodities}
                 isMulti
                 name="name"
                 options={commodities}
+                // options={this.state.commodities}
                 className="basic-multi-select"
-                classNamePrefix="select"  />
+                classNamePrefix="select"
+                // isClearable={false}
+                backspaceRemovesValue={false}
+                 />
+               
+                 {/* <a id="clear-button" class="waves-effect waves-light btn-small">Clear</a> */}
+                 
+        
         <div class="divider"><span></span><span></span><span></span></div>
-
+        </div>
         
             <label class="form-label">
                 Enter weight of commodities sold annually
@@ -271,8 +322,8 @@ if(this.state.submitted === false){
                     <th>Annual Weight Sold</th>
                     </tr>
                 </thead>
- {this.state.commoditiesSold ? <WeightTable collectWeights={this.collectWeights} commoditiesSold={this.state.commoditiesSold}/> 
- : null }
+ {this.state.commoditiesSold ? <WeightTable weightInput={this.state.weightInput} collectWeights={this.collectWeights} commoditiesSold={this.state.commoditiesSold}/> 
+ : <WeightTable />}
                 
             </table>
       {/* <button onClick={this.calculatePremium}>click me</button> */}

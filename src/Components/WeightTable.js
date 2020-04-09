@@ -6,12 +6,12 @@ class WeightTable extends React.Component {
 
    
     renderWeightTable = () => {
-        const comNameArray = this.props.commoditiesSold.map(comm => comm.label)
-        return comNameArray.map(name => {
-            return <WeightTableRow collectWeights={this.props.collectWeights} name={name} />
-        })
-            // <WeightTableRow
-
+        if(this.props.commoditiesSold){
+            const comNameArray = this.props.commoditiesSold.map(comm => comm.label)
+            return comNameArray.map(name => {
+                return <WeightTableRow weightInput={this.props.weightInput} collectWeights={this.props.collectWeights} name={name} />
+            })
+        }
         
     }
 

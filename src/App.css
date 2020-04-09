@@ -138,7 +138,36 @@
 
 }
 
+#clear-button{
+  top: 10px;
+  background-color: #20301A;
+}
+
+.css-xb97g8.select__multi-value__remove{
+  display: none;
+}
+
+
+/* .select__indicator.select__clear-indicator.css-tlfecz-indicatorContainer {
+  display: none;
+}
    
+.css-6q0nyr-Svg{
+  display: none;
+}
+
+.select__indicator.select__clear-indicator.css-tlfecz-indicatorContainer{
+  pointer-events: none;
+  
+}
+
+.css-6q0nyr-Svg{
+  display:none
+}
+
+.css-1gtu0rj-indicatorContainer{
+  display: none
+} */
 
   /* ---------- */
   .divider {								/* minor cosmetics */
