@@ -19,7 +19,7 @@ class ResultsContainer extends React.Component {
                     prices={this.props.prices} 
                     commoditiesSold={this.props.commoditiesSold}
                     premNoName={this.props.premNoName}
-
+                    data={this.props.data}
                     />
 
                     

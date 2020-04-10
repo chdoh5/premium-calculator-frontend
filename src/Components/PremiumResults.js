@@ -1,4 +1,5 @@
 import React from 'react';
+import BarChart from './TestChart/BarChart'
 
 // import './App.css';
 
@@ -7,10 +8,20 @@ import React from 'react';
 
 
 class PremiumResults extends React.Component {
+  
+
+  constructor(){
+    super()
+
+    this.state = {
+      data: []
+    }
+  }
+  
+
     currencyFormat=(num)=> {
         return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
      }
-
 
     
 renderTable = () => {
@@ -52,7 +63,7 @@ return (
             </tr>
         
     </tbody>
-    {/* {this.generateTable()} */}
+    
 
         
 
@@ -60,11 +71,25 @@ return (
   </table>
         
     )
+   
 }
+
+
+
+
+
 
 generateFirstColumn = () => {
  const names = this.props.commoditiesSold.map(com => com.label)
  const prices = this.props.prices
+
+
+
+
+
+
+
+ 
  return (
       names.map(name => {
        return <tr>  
@@ -72,7 +97,8 @@ generateFirstColumn = () => {
                 <td>{((prices[name]*this.props.percentage)*.03).toLocaleString('en-US', {
   style: 'currency',
   currency: 'USD',
-})} </td>
+})
+} </td>
                 <td>{((prices[name]*this.props.percentage)*.1).toLocaleString('en-US', {
   style: 'currency',
   currency: 'USD',
@@ -84,30 +110,39 @@ generateFirstColumn = () => {
                 <td>{((prices[name]*this.props.percentage)).toLocaleString('en-US', {
   style: 'currency',
   currency: 'USD',
-})} </td>
+}
+)
+ 
+} </td>
+
             </tr>
+            
 
      })
+     
     )
+
 }
 
-// generateSecondColumn = () => {
-//     const prices = this.props.premNoName
-//    return (
-//         prices.map(price => {
-//             return <td>{price}</td>
-//         })
-//    )
+
+
+
+
+
+// nameMe = (name) => {
+
 // }
 
-/* <tbody>
-<tr>
-<td>Jonathan</td>
-<td>Lollipop</td>
-<td>$7.00</td>
-</tr>
-</tbody> */
-
+// this.setState({
+  
+  //           data: [...newData,
+  //             {"commodity": name},
+  //             {"Admin Offset": ((prices[name]*this.props.percentage)*.03)},
+  //             {"EFI License": ((prices[name]*this.props.percentage)*.1)}, 
+  //             {"Worker Bonus": ((prices[name]*this.props.percentage)*.87)}
+  //             ]
+    
+  //         })
 
     render(){
         
@@ -124,7 +159,11 @@ generateFirstColumn = () => {
 
             <div>
                 {this.renderTable()}
+                {this.getData}
             </div>
+              <div>
+                <BarChart data={this.props.data} commoditiesSold={this.props.commoditiesSold} percentage={this.props.percentage} prices={this.props.prices} />
+              </div>
             </div>
         )
     } 

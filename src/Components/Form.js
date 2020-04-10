@@ -46,7 +46,7 @@ class Form extends React.Component {
         //     prices: {Apple: 15000, Pea: 40000},
         //     weights: {Apple: 15000, Pea: 40000},
         //     premium: 55000,
-        //     submitted: true,
+        //     submitted: false,
         //     weightInput: "pounds", 
         //     premNoName: [15000, 40000]
 
@@ -187,10 +187,25 @@ clearSelect = (e) => {
 
 generateResults = (e) => {
     e.preventDefault()
+    const object1 = this.state.prices
+    let x = []
+       for (let [key, value] of Object.entries(object1)) {
+        //  x.push(({[key]: value}))
+        x.push(({"commodity":key,
+                "Admin Offset": value*(this.state.percentage)*.03, 
+                "EFI License": value*(this.state.percentage)*.1,
+                "Worker Bonus": value*(this.state.percentage)*.87}))
+       }
+
     this.setState({
-        submitted: true
+        submitted: true, 
+        data: x
     })
 }
+
+
+
+
     
     render(){
 
@@ -486,6 +501,7 @@ if(this.state.submitted === false){
             prices={this.state.prices}
             commoditiesSold={this.state.commoditiesSold}
             premNoName={this.state.premNoName}
+            data={this.state.data}
             />
         )
     }
