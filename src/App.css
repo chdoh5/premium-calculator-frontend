@@ -61,6 +61,21 @@
    #welcome-info-small{
      padding-top: 55px;
    }
+   .results{
+     width:100%;
+     height: auto;
+   }
+
+   .results-graphic{
+     width:50%;
+     height: auto;
+   }
+
+   .premium-graphic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;   }
   
   #start-calculator-button{
     top: 30px;
@@ -123,6 +138,7 @@
   .premium-header{
     padding-bottom: 5px;
   }
+
 
   table.highlight > tbody > tr:hover {
  

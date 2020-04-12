@@ -1,5 +1,6 @@
 import React from 'react';
 import BarChart from './TestChart/BarChart'
+import premiumGraphic from '../premiumGraphic.png'
 
 // import './App.css';
 
@@ -18,7 +19,9 @@ class PremiumResults extends React.Component {
     }
   }
   
-
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
     currencyFormat=(num)=> {
         return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
      }
@@ -26,7 +29,7 @@ class PremiumResults extends React.Component {
     
 renderTable = () => {
 return (
-    <table class="highlight">
+    <table class="highlight results">
     <thead>
       <tr>
           <th>Commodity</th>
@@ -69,7 +72,7 @@ return (
 
 
   </table>
-        
+
     )
    
 }
@@ -158,9 +161,13 @@ generateFirstColumn = () => {
             
 
             <div>
+            
                 {this.renderTable()}
+
                 {this.getData}
+
             </div>
+
               <div>
                 <BarChart data={this.props.data} commoditiesSold={this.props.commoditiesSold} percentage={this.props.percentage} prices={this.props.prices} />
               </div>

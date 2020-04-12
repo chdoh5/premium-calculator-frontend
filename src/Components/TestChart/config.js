@@ -5,61 +5,83 @@ export default {
       "Worker Bonus"
     ],
     margin: {
-        "top": 50,
+        "top": 10,
         "right": 130,
         "bottom": 50,
-        "left": 60
+        "left": 100
     },
     defs: [
         {
-            "id": "dots",
+            "id": "worker",
             "type": "patternDots",
-            "background": "inherit",
-            "color": "#38bcb2",
-            "size": 4,
-            "padding": 1,
+            "background": "#507638",
+            "color": "#507638",
+            "size": 0,
+            "padding": 4,
             "stagger": true
         },
         {
-            "id": "lines",
+            "id": "efi",
             "type": "patternLines",
-            "background": "inherit",
-            "color": "#eed312",
+            "background": "#115C75",
+            "color": "#115C75",
             "rotation": -45,
-            "lineWidth": 6,
+            "lineWidth": 0,
             "spacing": 10
+        }, 
+        {
+            "id": "admin",
+            "type": "patternSquares",
+            "background": "#84163F",
+            "color": "#84163F",
+            "rotation": -45,
+            "lineWidth": 0,
+            "spacing": 10, 
+            "size": 0, 
+            
         }
     ],
     fill: [
         {
             "match": {
-                "id": "fries"
+                "id": "Worker Bonus"
             },
-            "id": "dots"
+            "id": "worker"
         },
         {
             "match": {
-                "id": "sandwich"
+                "id": "EFI License"
             },
-            "id": "lines"
-        }
+            "id": "efi", 
+            
+        },
+        {"match": {
+            "id": "Admin Offset"
+        },
+        "id": "admin"
+    }
+
     ],
     axisBottom: {
         "tickSize": 5,
         "tickPadding": 5,
         "tickRotation": 0,
-        "legend": "commodity",
+        "legend": "Premium",
         "legendPosition": "middle",
-        "legendOffset": 32
+        "legendOffset": 32, 
+        
+    
+        
     },
     axisLeft: {
         "tickSize": 5,
         "tickPadding": 5,
         "tickRotation": 0,
-        "legend": "Premium",
+        "legend": "Commodity",
         "legendPosition": "middle",
-        "legendOffset": -40
-    },
+        "legendOffset": -75
+
+        },
     legends: [
         {
             "dataFrom": "keys",

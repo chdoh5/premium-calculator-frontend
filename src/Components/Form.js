@@ -18,39 +18,39 @@ class Form extends React.Component {
     constructor(){
         super()
 
-        this.state={
-            timingQuestion: null,
-            modelWorkerBoolean: false,
-            weightInput: null,
-            costco: 0,
-            wholeFoods: 0,
-            foodbuy: 0,
-            percentage: 0, 
-            commoditiesSold: [], 
-            prices: [],
-            weights: {}, 
-            premium: 0,
-            submitted: false,
-            names: [], 
-            // premNoName: [], 
-            // commodities: commodities
-
-        }
-
         // this.state={
-        //     costco: "10",
-        //     wholeFoods: "5",
-        //     foodbuy: "5",
-        //     percentage: .20,
-        //     commoditiesSold: [{label: "Apple", value: "Apple", price: 0.015}, {label: "Pea", value: "Pea", price: 0.02}],
-        //     prices: {Apple: 15000, Pea: 40000},
-        //     weights: {Apple: 15000, Pea: 40000},
-        //     premium: 55000,
+        //     timingQuestion: null,
+        //     modelWorkerBoolean: false,
+        //     weightInput: null,
+        //     costco: 0,
+        //     wholeFoods: 0,
+        //     foodbuy: 0,
+        //     percentage: 0, 
+        //     commoditiesSold: [], 
+        //     prices: [],
+        //     weights: {}, 
+        //     premium: 0,
         //     submitted: false,
-        //     weightInput: "pounds", 
-        //     premNoName: [15000, 40000]
+        //     names: [], 
+        //     // premNoName: [], 
+        //     // commodities: commodities
 
         // }
+
+        this.state={
+            costco: "10",
+            wholeFoods: "5",
+            foodbuy: "5",
+            percentage: .20,
+            commoditiesSold: [{label: "Apple", value: "Apple", price: 0.015}, {label: "Pea", value: "Pea", price: 0.02}],
+            prices: {Apple: 15000, Pea: 40000},
+            weights: {Apple: 15000, Pea: 40000},
+            premium: 55000,
+            submitted: false,
+            weightInput: "pounds", 
+            premNoName: [15000, 40000]
+
+        }
     }
 
 currencyFormat=(num)=> {
@@ -185,13 +185,14 @@ clearSelect = (e) => {
 }
 
 
+
 generateResults = (e) => {
     e.preventDefault()
     const object1 = this.state.prices
     let x = []
        for (let [key, value] of Object.entries(object1)) {
         //  x.push(({[key]: value}))
-        x.push(({"commodity":key,
+        x.push(({"commodity":key.replace(/(.{6})..+/, "$1…"),
                 "Admin Offset": value*(this.state.percentage)*.03, 
                 "EFI License": value*(this.state.percentage)*.1,
                 "Worker Bonus": value*(this.state.percentage)*.87}))
