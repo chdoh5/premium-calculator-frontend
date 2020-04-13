@@ -87,10 +87,6 @@ generateFirstColumn = () => {
 
 
 
-
-
-
-
  
  return (
 
@@ -129,24 +125,6 @@ generateFirstColumn = () => {
 }
 
 
-
-
-
-
-// nameMe = (name) => {
-
-// }
-
-// this.setState({
-  
-  //           data: [...newData,
-  //             {"commodity": name},
-  //             {"Admin Offset": ((prices[name]*this.props.percentage)*.03)},
-  //             {"EFI License": ((prices[name]*this.props.percentage)*.1)}, 
-  //             {"Worker Bonus": ((prices[name]*this.props.percentage)*.87)}
-  //             ]
-    
-  //         })
 
     render(){
         
