@@ -1,7 +1,6 @@
 import React from 'react';
 import BarChart from './TestChart/BarChart'
-import premiumGraphic from '../premiumGraphic.png'
-
+import PieChart from './TestChart/PieChart'
 // import './App.css';
 
 
@@ -94,6 +93,8 @@ generateFirstColumn = () => {
 
  
  return (
+
+  
       names.map(name => {
        return <tr>  
                 <td>{name}</td>
@@ -168,9 +169,17 @@ generateFirstColumn = () => {
 
             </div>
 
-              <div>
-                <BarChart data={this.props.data} commoditiesSold={this.props.commoditiesSold} percentage={this.props.percentage} prices={this.props.prices} />
-              </div>
+              <div style={{height: 500}}>
+                <div style={{height:400}}   className="pie">
+                <h6 class='title'>Premium Distribution Breakdown</h6>
+                <PieChart  />
+                </div>
+                <div class="bar">
+                <BarChart  data={this.props.data} commoditiesSold={this.props.commoditiesSold} percentage={this.props.percentage} prices={this.props.prices} />
+                
+                </div>
+              
+            </div>
             </div>
         )
     } 

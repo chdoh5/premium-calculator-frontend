@@ -66,6 +66,25 @@
      height: auto;
    }
 
+   .pieContainer{
+     height: 200px;
+     width: 100%
+   }
+   .pie{
+    width: 50%;
+    float: right;
+    padding-left: 90px;
+    margin-top: 50px;
+    font-weight: bold;
+   }
+   .bar{
+     width: 50%;
+     float: left;
+    
+   }
+   .title{
+     text-align: center;
+   }
    .results-graphic{
      width:50%;
      height: auto;
