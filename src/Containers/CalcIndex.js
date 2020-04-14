@@ -1,5 +1,4 @@
 import React from 'react';
-// import './App.css';
 import Header from './Header' 
 import WelcomeContainer from './WelcomeContainer'
 import Form from '../Components/Form'
@@ -14,12 +13,18 @@ class CalcIndex extends React.Component {
 
     constructor(){
         super()
-
         this.state={
             welcomeButtonClicked: false
         }
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+      }
+
+    scroll() {
+        window.scrollTo(0,0)
+    }
     renderForm = () => {
         this.setState({
             welcomeButtonClicked: true
@@ -27,13 +32,16 @@ class CalcIndex extends React.Component {
     }
 
 
+      
     
     
     render(){
+        
 
         if(this.state.welcomeButtonClicked===false){
             return (
-                <div>
+                
+                <div ref={this.myRef} >
                     <Header /> 
                 <div class="welcome">
                     <WelcomeContainer handleClick={this.renderForm} />

@@ -1,19 +1,19 @@
 import React from 'react';
 import premiumGraphic from '../premiumGraphic.png'
-// import './App.css';
-
-
-
 
 
 
 class WelcomeContainer extends React.Component {
-    
-    
+
+
+
+
     render(){
+        window.scrollTo(0,0)
         return (
+            
             <div class=" container welcome-message" >
-                <h2  >EFI Premium Calculator</h2>
+                <h2 id="HEADER"  >EFI Premium Calculator</h2>
                     <p id="welcome-info-big">
                     The EFI Premium Modeler is intended to help prospective growers
                      estimate their operation's expected bonus paid by participating buyers. 

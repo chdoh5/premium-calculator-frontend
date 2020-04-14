@@ -19,7 +19,8 @@ class Form extends React.Component {
         super()
 
         this.state={
-            timingQuestion: null,
+        // diabled for presentation
+            // timingQuestion: null,
             modelWorkerBoolean: false,
             weightInput: null,
             costco: 0,
@@ -31,12 +32,10 @@ class Form extends React.Component {
             weights: {}, 
             premium: 0,
             submitted: false,
-            names: [], 
-            // premNoName: [], 
-            // commodities: commodities
+            names: []
 
         }
-
+// used for dev
         // this.state={
         //     costco: "10",
         //     wholeFoods: "5",
@@ -132,7 +131,6 @@ determinePremium = (e) => {
 
 collectWeights = (e, name) => {
   
-    // parseInt(this.state.number.split(",").join())
     let x = e.target.value.toString()
     let y = parseInt(x.split().join().replace(/,/g, ''))
     const commodity = this.state.commoditiesSold.filter(comm => comm.label === name)
@@ -144,7 +142,6 @@ collectWeights = (e, name) => {
     
         this.setState({
             prices: newWeights,
-            // premNoName: Object.values(this.state.prices)
             
         })
     }else {
@@ -153,7 +150,6 @@ collectWeights = (e, name) => {
     
         this.setState({
             prices: newWeights,
-            // premNoName: Object.values(this.state.prices)
             
         })
     }
@@ -174,16 +170,6 @@ for (let key in this.state.prices) {
 
 }
 
-clearSelect = (e) => {
-    console.log(e.target)
-    // this.setState({
-    //     commoditiesSold: [],
-    //     premium: 0,
-    //     prices: [],
-    //     weights: {}
-    // })
-}
-
 
 
 generateResults = (e) => {
@@ -191,7 +177,6 @@ generateResults = (e) => {
     const object1 = this.state.prices
     let x = []
        for (let [key, value] of Object.entries(object1)) {
-        //  x.push(({[key]: value}))
         x.push(({"commodity":key.replace(/(.{6})..+/, "$1…"),
                 "Admin Offset": value*(this.state.percentage)*.03, 
                 "EFI License": value*(this.state.percentage)*.1,
@@ -204,17 +189,17 @@ generateResults = (e) => {
     })
 }
 
-
-
-
     
     render(){
 
-        console.log(this.state)
 if(this.state.submitted === false){
        return(
     <form class="container form">
-        <label class="form-label">
+<h7>*All data collected annually</h7>
+<br /><br />
+    {/* disabled for presentation */}
+
+        {/* <label class="form-label">
         I want to enter my weight sold by:
           <select class="select-box" onChange={this.handleTimingChange}>
               <option value="" disabled selected>Choose your option</option>
@@ -222,9 +207,9 @@ if(this.state.submitted === false){
               <option disabled value="quarter">Quarter</option>
               <option disabled value="month">Month</option>
           </select>
-        </label>
+        </label> */}
         
-        {/* const qTwo =  */}
+        {/* const qTwo = 
         <div onClick={this.handleWorkerCheck}>
         <label class="form-label">
         Model Worker Per Month?
@@ -232,7 +217,7 @@ if(this.state.submitted === false){
             <span id="checkbox">Yes</span>
         </label>
         </div>
-<br /><br/>
+<br /><br/> */}
         {/* const qThree =  */}
         <div>
         <label class="form-label">
@@ -313,14 +298,11 @@ if(this.state.submitted === false){
                 isMulti
                 name="name"
                 options={commodities}
-                // options={this.state.commodities}
                 className="basic-multi-select"
                 classNamePrefix="select"
-                // isClearable={false}
                 backspaceRemovesValue={false}
                  />
                
-                 {/* <a id="clear-button" class="waves-effect waves-light btn-small">Clear</a> */}
                  
         
         <div class="divider"><span></span><span></span><span></span></div>
@@ -342,11 +324,10 @@ if(this.state.submitted === false){
  : <WeightTable />}
                 
             </table>
-      {/* <button onClick={this.calculatePremium}>click me</button> */}
       <div class="divider"><span></span><span></span><span></span></div>
 
-
-      <div>
+{/* diabled for presenttion */}
+      {/* <div>
             <label class="form-label">
                 Enter total workforce size each month (*optional)
             </label>
@@ -485,7 +466,7 @@ if(this.state.submitted === false){
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div> */}
         <div>
             <button onClick={this.generateResults} id="start-calculator-button" className=" btn-large generate-results-button">Generate Results</button>
         </div>

@@ -1,12 +1,6 @@
 import React from 'react';
 import BarChart from './TestChart/BarChart'
 import PieChart from './TestChart/PieChart'
-import jsPDF from 'jspdf';
-import html2pdf from 'html2pdf.js'
-
-// import './App.css';
-
-
 
 
 
@@ -24,9 +18,10 @@ class PremiumResults extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0)
   }
-    currencyFormat=(num)=> {
-        return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-     }
+
+  currencyFormat=(num)=> {
+    return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
 
     
 renderTable = () => {
@@ -68,20 +63,12 @@ return (
             </tr>
         
     </tbody>
-    
-
-        
-
-
+ 
   </table>
 
     )
    
 }
-
-
-
-
 
 
 generateFirstColumn = () => {
@@ -118,12 +105,11 @@ generateFirstColumn = () => {
  
 } </td>
 
-            </tr>
-            
-
-     })
+     </tr>
+          
+    })
      
-    )
+  )
 
 }
 
@@ -139,8 +125,6 @@ printPage = () => {
 
     render(){
         
-    
-
         return (
             <div id="element-to-print" class="premium-message" >
                 <h3 class="premium-header">Premium Results</h3>
@@ -149,8 +133,6 @@ printPage = () => {
                     amounts per year.  Premium is calculated as a total premium and divided 
                     between Admin (3%), EFI Licensing Fee (10%), and Worker Bonus (87%).
                     </p>
-            
-
             <div>
             
                 {this.renderTable()}

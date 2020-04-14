@@ -1,9 +1,6 @@
 import React from 'react';
 import { ResponsiveBar } from '@nivo/bar'
-
-// import data from './chartTestData'
 import config from './config'
-
 import './chartTestCSS.css'
 
 class BarChart extends React.Component {
@@ -12,25 +9,6 @@ class BarChart extends React.Component {
 
     render() {
         
-            
-
-        // const data = [
-          
-        //     {
-        //         "commodity": "Apples",
-        //         "Admin Offset": 90,
-        //         "EFI License": 300, 
-        //         "Worker Bonus": 2610
-        //     },
-        //     {
-        //         "commodity": "Pea",
-        //         "Admin Offset": 240,
-        //         "EFI License": 800,
-        //         "Worker Bonus": 4000
-        //     }]
-
-
-
 
         return (
             <div>
@@ -70,7 +48,7 @@ class BarChart extends React.Component {
                     } 
                     tooltip={({ id, value, color }) => (
             <strong style={{ color:"white" }}>
-                {id}: ${value}
+                {id}: ${value.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
             </strong>
         )}
         theme={{
@@ -86,9 +64,6 @@ class BarChart extends React.Component {
         )
     }
 }
-
-
-
 
 
 export default BarChart;
