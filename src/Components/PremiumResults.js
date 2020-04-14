@@ -1,6 +1,9 @@
 import React from 'react';
 import BarChart from './TestChart/BarChart'
 import PieChart from './TestChart/PieChart'
+import jsPDF from 'jspdf';
+import html2pdf from 'html2pdf.js'
+
 // import './App.css';
 
 
@@ -124,13 +127,22 @@ generateFirstColumn = () => {
 
 }
 
-
+printPage = () => {
+  //Get the print button and put it into a variable
+  let printButton = document.getElementById("start-calculator-button");
+  //Set the print button visibility to 'hidden' 
+  printButton.style.visibility = 'hidden';
+  //Print the page content
+  window.print()
+  printButton.style.visibility = 'visible';
+}
 
     render(){
         
-        
+    
+
         return (
-            <div class="premium-message" >
+            <div id="element-to-print" class="premium-message" >
                 <h3 class="premium-header">Premium Results</h3>
                     <p >
                     Based on your sales, you can expect roughly the following total premium
@@ -156,7 +168,9 @@ generateFirstColumn = () => {
                 <BarChart  data={this.props.data} commoditiesSold={this.props.commoditiesSold} percentage={this.props.percentage} prices={this.props.prices} />
                 
                 </div>
-              
+                <div>
+              <button  id="start-calculator-button" className="btn-large generate-results-button" onClick={this.printPage}>Save to PDF</button>
+              </div>
             </div>
             </div>
         )

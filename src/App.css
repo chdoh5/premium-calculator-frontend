@@ -78,8 +78,14 @@
     font-weight: bold;
    }
    .bar{
-     width: 50%;
+     height: 650px;
+     width: 45%;
      float: left;
+     margin-left: 0px;
+     padding-left: 0px;
+     text-align: left;
+    margin-right: 30px;
+    
     
    }
    .title{
@@ -98,7 +104,8 @@
   
   #start-calculator-button{
     top: 30px;
-    background-color:#20301A
+    background-color:#20301A;
+    bottom: 20px
   }
 
   #start-calculator-button:hover{
@@ -150,7 +157,7 @@
 
   .premium-message{
     text-align: left;
-    margin-left: 20px;
+    margin-left: 5px;
   
   }
 
@@ -158,7 +165,13 @@
     padding-bottom: 5px;
   }
 
-
+  .chart{
+    box-shadow: none !important;
+    
+  }
+.chart:hover{
+ box-shadow:none !important;
+}
   table.highlight > tbody > tr:hover {
  
     background-color: #84BD00 !important;
