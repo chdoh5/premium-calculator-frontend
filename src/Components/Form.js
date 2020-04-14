@@ -20,7 +20,7 @@ class Form extends React.Component {
 
         this.state={
         // diabled for presentation
-            // timingQuestion: null,
+            timingQuestion: null,
             modelWorkerBoolean: false,
             weightInput: null,
             costco: 0,
@@ -189,7 +189,24 @@ generateResults = (e) => {
     })
 }
 
-    
+handleSubmit = (e) => {
+
+    const reqObj = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            generated_at: new Date().toString()
+        })
+    }
+    e.preventDefault()
+    fetch('http://localhost:3000/results', reqObj)
+        .then(resp => resp.json())
+        .then(newResult => this.generateResults(e))  
+}
+
+// --------------------------------------------------------------
     render(){
 
 if(this.state.submitted === false){
@@ -199,7 +216,7 @@ if(this.state.submitted === false){
 <br /><br />
     {/* disabled for presentation */}
 
-        {/* <label class="form-label">
+        <label class="form-label">
         I want to enter my weight sold by:
           <select class="select-box" onChange={this.handleTimingChange}>
               <option value="" disabled selected>Choose your option</option>
@@ -207,9 +224,9 @@ if(this.state.submitted === false){
               <option disabled value="quarter">Quarter</option>
               <option disabled value="month">Month</option>
           </select>
-        </label> */}
+        </label> 
         
-        {/* const qTwo = 
+        {/* {/* const qTwo = } */}
         <div onClick={this.handleWorkerCheck}>
         <label class="form-label">
         Model Worker Per Month?
@@ -217,7 +234,7 @@ if(this.state.submitted === false){
             <span id="checkbox">Yes</span>
         </label>
         </div>
-<br /><br/> */}
+<br /><br/>
         {/* const qThree =  */}
         <div>
         <label class="form-label">
@@ -327,7 +344,7 @@ if(this.state.submitted === false){
       <div class="divider"><span></span><span></span><span></span></div>
 
 {/* diabled for presenttion */}
-      {/* <div>
+      <div>
             <label class="form-label">
                 Enter total workforce size each month (*optional)
             </label>
@@ -466,9 +483,9 @@ if(this.state.submitted === false){
                     </tr>
                 </tbody>
             </table>
-        </div> */}
+        </div>
         <div>
-            <button onClick={this.generateResults} id="start-calculator-button" className=" btn-large generate-results-button">Generate Results</button>
+            <button onClick={(e) => {this.handleSubmit(e)}} id="start-calculator-button" className=" btn-large generate-results-button">Generate Results</button>
         </div>
     </form>
 
