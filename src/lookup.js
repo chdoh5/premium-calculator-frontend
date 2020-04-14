@@ -1,4 +1,7 @@
 export const commodities = [
+
+
+
     {
         label: "Apple",
         value: 'Apple',
@@ -24,20 +27,14 @@ export const commodities = [
 
     },
     {
-        label: "Bell Pepper, Green",
-        value: "Bell Pepper, Green",
+        label: "Bell Pepper Green",
+        value: "Bell Pepper Green",
         price: 0.012,
 
     },
     {
-        label: "Bell Pepper, Mixed",
-        value:  "Bell Pepper, Mixed",
-        price: 0,
-
-    },
-    {
-        label: "Bell Pepper, Red",
-        value:  "Bell Pepper, Red",
+        label: " Bell Pepper Red",
+        value:  " Bell Pepper Red",
         price: 0.02,
 
     },
@@ -66,8 +63,8 @@ export const commodities = [
 
     },
     {
-        label: "Brussels Sprout, Bulk",
-        value:  "Brussels Sprout, Bulk",
+        label: " Brussels Sprout, Bulk",
+        value:  " Brussels Sprout, Bulk",
         price: 0.015,
 
     },
@@ -102,20 +99,14 @@ export const commodities = [
 
     },
     {
-        label: "Cucumber, Baby Cocktail",
-        value:  "Cucumber, Baby Cocktail",
-        price: 0,
-
-    },
-    {
         label: "Cucumber, Euro/Mini",
         value:  "Cucumber, Euro/Mini",
         price: 0.018,
 
     },
     {
-        label: "Cucumber, Field/Slicer",
-        value:  "Cucumber, Field/Slicer",
+        label: " Cucumber, Field/Slicer",
+        value:  " Cucumber, Field/Slicer",
         price: 0.01,
 
     },
@@ -132,20 +123,20 @@ export const commodities = [
 
     },
     {
-        label: "Green Bean, Bulk",
-        value:  "Green Bean, Bulk",
+        label: " Green Bean, Bulk",
+        value:  " Green Bean, Bulk",
         price: 0.015,
 
     },
     {
-        label: "Leafy Grens, Field-Packed",
-        value:  "Leafy Grens, Field-Packed",
+        label: "Leafy Greens, Field-Packed",
+        value:  "Leafy Greens, Field-Packed",
         price: 0.02,
 
     },
     {
-        label: "Leafy Grens, Processed",
-        value:  "Leafy Grens, Processed",
+        label: " Leafy Greens, Processed",
+        value:  " Leafy Greens, Processed",
         price: 0.01,
 
     },
@@ -162,15 +153,9 @@ export const commodities = [
 
     },
     {
-        label: "Melon, full-sized watermelon",
-        value:  "Melon, full-sized watermelon",
+        label: " Melon, full-sized watermelon",
+        value:  " Melon, full-sized watermelon",
         price: 0.004,
-
-    },
-    {
-        label: "Mini Pepper",
-        value:  "Mini Pepper",
-        price: 0,
 
     },
     {
@@ -186,8 +171,8 @@ export const commodities = [
 
     },
     {
-        label: "Onion, mechanized",
-        value:  "Onion, mechanized",
+        label: " Onion, mechanized",
+        value:  " Onion, mechanized",
         price: 0.01,
 
     },
@@ -246,38 +231,26 @@ export const commodities = [
 
     },
     {
-        label: "Tomato, Cocktail",
-        value:  "Tomato, Cocktail",
-        price: 0,
-
-    },
-    {
-        label: "Tomato, Heirloom",
-        value:  "Tomato, Heirloom",
-        price: 0,
-
-    },
-    {
         label: "Tomato, Roma",
         value:  "Tomato, Roma",
         price: 0.01,
 
     },
     {
-        label: "Tomato, Round (beefsteak, heirloom)",
-        value:  "Tomato, Round (beefsteak, heirloom)",
+        label: " Tomato, Round (beefsteak, heirloom)",
+        value:  " Tomato, Round (beefsteak, heirloom)",
         price: 0.02,
 
     },
     {
-        label: "Tomato, Small (grape, cherry, cocktail)",
-        value:  "Tomato, Small (grape, cherry, cocktail)",
+        label: "  Tomato, Small (grape, cherry, cocktail)",
+        value:  "  Tomato, Small (grape, cherry, cocktail)",
         price: 0.03,
 
     },
     {
-        label: "Tomato, Vine",
-        value:  "Tomato, Vine",
+        label: "   Tomato, Vine",
+        value:  "   Tomato, Vine",
         price: 0.01,
 
     }
