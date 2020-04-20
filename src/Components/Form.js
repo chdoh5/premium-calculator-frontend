@@ -131,14 +131,14 @@ determinePremium = (e) => {
 
 collectWeights = (e, name) => {
   
-    let x = e.target.value.toString()
-    let y = parseInt(x.split().join().replace(/,/g, ''))
+    let enteredWeight = e.target.value.toString()
+    let intWeight = parseInt(enteredWeight.split().join().replace(/,/g, ''))
     const commodity = this.state.commoditiesSold.filter(comm => comm.label === name)
     const price = commodity.map(com => com.price)
     const kPrice = price*2.20462
     if(this.state.weightInput==="pounds"){
         let newWeights = this.state.weights
-        newWeights[name] = y*price
+        newWeights[name] = intWeight*price
     
         this.setState({
             prices: newWeights,
