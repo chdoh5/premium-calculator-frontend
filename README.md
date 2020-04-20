@@ -1,68 +1,82 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# EFI Premium Calculator (Frontend)
 
-## Available Scripts
 
-In the project directory, you can run:
+A client acquisition experience for <a href="https://equitablefood.org/about-efi/"> Equitable Food Initiative</a> - the largest ethical-labor farm certification agency in the US. The experience guides farm operators to estimate their return premium from partnering with EFI.  Solo project.
 
-### `yarn start`
+<a href="http://www.linkedin.com/in/christineadoherty"><img src="https://media-exp1.licdn.com/dms/image/C562DAQHuNdZVkfDJ4g/profile-treasury-image-shrink_800_800/0?e=1587510000&v=beta&t=z0tja4qcQGrbNDvs7A9il8r1Th6q8SizrCwSoPtvwkU" title="EFI Premium Calculator" alt="EFIPremiumCalculator"></a>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Built With...
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
+- <a href="https://reactjs.org/"> ReactJS </a>
+- <a href="https://materializecss.com/"> Materialize CSS </a> 
+- <a href="https://rubyonrails.org/"> Ruby on Rails</a> API backend
+- <a href="https://nivo.rocks/">Nivo</a>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `yarn build`
+## Current Features 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Dynamic Input Form**
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* Estimate potential return premium received based on personalized inputs
+* Enter weight in pounds or kilograms
+* Specify % sold to partner vendors
+* Select unlimited number and type of commodities sold 
+* Dynamic weight input form that populates based on current commodities selection
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Results Page**
 
-### `yarn eject`
+* Dynamic results table that breaks down estimated premium by commodity sold as well as total 
+* Customized Nivo Stacked Bar Chart featuring each commodity and breakdown of premium distribution
+* Interactive tooltip
+* Pie chart illustrating  % of premium breakdown between Admin, License, and Worker Bonus
+* Ability to Save to PDF
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<a href="http://www.linkedin.com/in/christineadoherty"><img src="https://media-exp1.licdn.com/dms/image/C562DAQG2bG9SEsm9eA/profile-treasury-image-shrink_800_800/0?e=1587510000&v=beta&t=2JENiisCpwCyHRCrMuvQxQXgWAmPGZhqbfpGIiqR14o" title="EFI Premium Calculator Results" alt="EFIPremiumCalculator"></a>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Future Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Ability to generate results based on monthly/quarterly input 
+* Option to enter size of workforce per month
+* Additional results page illustrating change in Worker Bonus per month
+* Call to Action and client outreach through ActionMailer
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Calculation Example 
 
-## Learn More
+```javascript 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+collectWeights = (e, name) => {
+  
+    let enteredWeight = e.target.value.toString()
+    let intWeight = parseInt(enteredWeight.split().join().replace(/,/g, ''))
+    const commodity = this.state.commoditiesSold.filter(comm => comm.label === name)
+    const price = commodity.map(com => com.price)
+    const kPrice = price*2.20462
+    if(this.state.weightInput==="pounds"){
+        let newWeights = this.state.weights
+        newWeights[name] = intWeight*price
+    
+        this.setState({
+            prices: newWeights,
+            
+        })
+    }else {
+        let newWeights = this.state.weights
+        newWeights[name] = y*kPrice
+    
+        this.setState({
+            prices: newWeights,
+            
+        })
+    }
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    this.calculatePremium()
+}
+```
 
-### Code Splitting
+## Feedback
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Feel free to reach out on <a href="http://www.linkedin.com/in/christineadoherty">LinkedIn</a> with any thoughts or feedback!
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Thanks for checking out this repo!!
