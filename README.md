@@ -10,7 +10,7 @@ A client acquisition experience for <a href="https://equitablefood.org/about-efi
 
 - <a href="https://reactjs.org/"> ReactJS </a>
 - <a href="https://materializecss.com/"> Materialize CSS </a> 
-- <a href="https://rubyonrails.org/"> Ruby on Rails</a> API <a href="https://github.com/chdoh5/premium-calculator-backend"> backend </a>
+- <a href="https://rubyonrails.org/"> Ruby on Rails</a> API backend
 - <a href="https://nivo.rocks/">Nivo</a>
 
 ---
