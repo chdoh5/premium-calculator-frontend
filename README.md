@@ -63,7 +63,7 @@ collectWeights = (e, name) => {
         })
     }else {
         let newWeights = this.state.weights
-        newWeights[name] = y*kPrice
+        newWeights[name] = intWeight*kPrice
     
         this.setState({
             prices: newWeights,
