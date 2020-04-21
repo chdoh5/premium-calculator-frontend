@@ -25,6 +25,8 @@ A client acquisition experience for <a href="https://equitablefood.org/about-efi
 * Select unlimited number and type of commodities sold 
 * Dynamic weight input form that populates based on current commodities selection
 
+![](select_demo.gif)
+
 **Results Page**
 
 * Dynamic results table that breaks down estimated premium by commodity sold as well as total 
