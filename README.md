@@ -3,7 +3,7 @@
 
 A client acquisition experience for <a href="https://equitablefood.org/about-efi/"> Equitable Food Initiative</a> - the largest ethical-labor farm certification agency in the US. The experience guides farm operators to estimate their return premium from partnering with EFI.  Solo project.
 
-<a href="http://www.linkedin.com/in/christineadoherty"><img src="https://media-exp1.licdn.com/dms/image/C562DAQHuNdZVkfDJ4g/profile-treasury-image-shrink_800_800/0?e=1587510000&v=beta&t=z0tja4qcQGrbNDvs7A9il8r1Th6q8SizrCwSoPtvwkU" title="EFI Premium Calculator" alt="EFIPremiumCalculator"></a>
+<a href="http://www.linkedin.com/in/christineadoherty">![](welcome_screenshot.png)</a>
 
 ## Built With...
 
@@ -35,7 +35,7 @@ A client acquisition experience for <a href="https://equitablefood.org/about-efi
 * Pie chart illustrating  % of premium breakdown between Admin, License, and Worker Bonus
 * Ability to Save to PDF
 
-<a href="http://www.linkedin.com/in/christineadoherty"><img src="https://media-exp1.licdn.com/dms/image/C562DAQG2bG9SEsm9eA/profile-treasury-image-shrink_800_800/0?e=1587510000&v=beta&t=2JENiisCpwCyHRCrMuvQxQXgWAmPGZhqbfpGIiqR14o" title="EFI Premium Calculator Results" alt="EFIPremiumCalculator"></a>
+<a href="http://www.linkedin.com/in/christineadoherty">![](results_screenshot.png)</a>
 
 ## Future Features
 
