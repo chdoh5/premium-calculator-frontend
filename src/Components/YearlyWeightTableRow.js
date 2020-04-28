@@ -3,7 +3,7 @@ import {numberFormat} from './NumberFormat'
 import NumberFormat from 'react-number-format'
 
 
-class WeightTableRow extends React.Component {
+class YearlyWeightTableRow extends React.Component {
 
 
 
@@ -48,4 +48,4 @@ class WeightTableRow extends React.Component {
 }
 
 
-export default WeightTableRow;
+export default YearlyWeightTableRow;

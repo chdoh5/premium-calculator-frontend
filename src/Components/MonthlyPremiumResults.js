@@ -1,11 +1,10 @@
 import React from 'react';
-// import './App.css';
 
 
 
 
 
-class WorkerResults extends React.Component {
+class MonthlyPremiumResults extends React.Component {
     
     
     render(){
@@ -17,4 +16,4 @@ class WorkerResults extends React.Component {
 }
 
 
-export default WorkerResults;
+export default MonthlyPremiumResults;

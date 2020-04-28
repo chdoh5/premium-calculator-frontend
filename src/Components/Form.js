@@ -4,6 +4,7 @@ import Select from 'react-select'
 import MyComponent from './Select'
 import WeightTable from './WeightTable'
 import { commodities } from '../lookup'
+import NumberFormat from 'react-number-format'
 
 
 
@@ -217,23 +218,22 @@ if(this.state.submitted === false){
     {/* disabled for presentation */}
 
         <label class="form-label">
-        I want to enter my weight sold by:
+        I want to enter my weight sold and worker count by:
           <select class="select-box" onChange={this.handleTimingChange}>
               <option value="" disabled selected>Choose your option</option>
               <option value="year">Year</option>
-              <option disabled value="quarter">Quarter</option>
-              <option disabled value="month">Month</option>
+              <option value="month">Month</option>
           </select>
         </label> 
         
-        {/* {/* const qTwo = } */}
-        <div onClick={this.handleWorkerCheck}>
+       
+        {/* <div onClick={this.handleWorkerCheck}>
         <label class="form-label">
         Model Worker Per Month?
             <input id="checkbox" type="checkbox" />
             <span id="checkbox">Yes</span>
         </label>
-        </div>
+        </div> */}
 <br /><br/>
         {/* const qThree =  */}
         <div>
@@ -337,16 +337,17 @@ if(this.state.submitted === false){
                     <th>Annual Weight Sold</th>
                     </tr>
                 </thead>
- {this.state.commoditiesSold ? <WeightTable weightInput={this.state.weightInput} collectWeights={this.collectWeights} commoditiesSold={this.state.commoditiesSold}/> 
+ {this.state.commoditiesSold ? <WeightTable timingQuestion={this.state.timingQuestion} weightInput={this.state.weightInput} collectWeights={this.collectWeights} commoditiesSold={this.state.commoditiesSold}/> 
  : <WeightTable />}
                 
             </table>
       <div class="divider"><span></span><span></span><span></span></div>
 
 {/* diabled for presenttion */}
+{this.state.timingQuestion==="month" ?
       <div>
             <label class="form-label">
-                Enter total workforce size each month (*optional)
+                Enter total workforce size each month <sup style={{fontSize:16}}>(*optional)</sup>
             </label>
         <br /><br/>
             <table align="left"id="worker-table-left" class="centered ">
@@ -364,7 +365,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline ">
-                        <input  class="right" type="number"/>
+                       <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -374,7 +375,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input  class="right" type="number" />
+                       <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -384,7 +385,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input class="right" type="number" />
+                        <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -393,7 +394,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input class="right" type="number" />
+                        <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -402,7 +403,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input class="right" type="number" />
+                        <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -411,7 +412,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input class="right" type="number" />
+                        <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -432,7 +433,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input class="right" type="number" />
+                        <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -441,7 +442,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input class="right" type="number" />
+                        <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -450,7 +451,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input class="right" type="number" />
+                        <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -459,7 +460,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input class="right" type="number" />
+                        <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -468,7 +469,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input class="right" type="number" />
+                        <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -477,13 +478,27 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <input class="right" type="number" />
+                        <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
                 </tbody>
             </table>
+        </div> 
+        :
+        <div>
+            <label class="form-label">
+                Enter peak annual workforce size <sup style={{fontSize:16}}>(*optional)</sup>
+            </label>
+            
+            <div class="input-field inline">
+            <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
+            </div>
+        <br /><br/>
+            
         </div>
+}
+<br/><br />
         <div>
             <button onClick={(e) => {this.handleSubmit(e)}} id="start-calculator-button" className=" btn-large generate-results-button">Generate Results</button>
         </div>

@@ -4,7 +4,7 @@ import PieChart from './TestChart/PieChart'
 
 
 
-class PremiumResults extends React.Component {
+class YearlyPremiumResults extends React.Component {
   
 
   constructor(){
@@ -160,4 +160,4 @@ printPage = () => {
 }
 
 
-export default PremiumResults;
+export default YearlyPremiumResults;
