@@ -29,7 +29,7 @@ class WeightTable extends React.Component {
         return (
         
 
-                <tbody>
+                <tbody >
                     {this.renderWeightTable()}
                 </tbody>
     

@@ -22,7 +22,7 @@ class ResultsContainer extends React.Component {
                         />
     
                         
-                    <MonthlyPremiumResults />
+                    {/* <MonthlyPremiumResults /> */}
                 </div>
             )
         } else{

@@ -21,9 +21,9 @@ class Form extends React.Component {
 
         this.state={
         // diabled for presentation
-            timingQuestion: null,
+            timingQuestion: "month",
             modelWorkerBoolean: false,
-            weightInput: null,
+            weightInput: "pounds",
             costco: 0,
             wholeFoods: 0,
             foodbuy: 0,
@@ -329,13 +329,13 @@ if(this.state.submitted === false){
                 Enter weight of commodities sold annually
             </label>
             <br /><br/>
-            <table class="centered striped">
+            <table class="center centered striped">
                 <thead>
                     <tr>
                     <th>Commodity Name</th>
               
-                    <th>Annual Weight Sold</th>
-                    </tr>
+                {this.state.timingQuestion==="year" ? <th>Annual Weight Sold</th> : <th>Monthly Weight Sold</th> }
+                  </tr>
                 </thead>
  {this.state.commoditiesSold ? <WeightTable timingQuestion={this.state.timingQuestion} weightInput={this.state.weightInput} collectWeights={this.collectWeights} commoditiesSold={this.state.commoditiesSold}/> 
  : <WeightTable />}

@@ -131,6 +131,25 @@
     color: #20301A
   }
 
+  .table-label{
+    font-size: 12px;
+    color: #20301A
+
+  }
+
+  .table-scroll{
+    width:915px;overflow-x:scroll;
+  }
+
+
+  .div-scroll{
+    width: 250%;
+  }
+  
+  .table-header{
+    line-height:60%;
+  }
+
   #checkbox{
     position:relative;
     margin-left:30px;
