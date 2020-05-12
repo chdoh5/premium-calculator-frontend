@@ -34,6 +34,8 @@ return (
           <th>EFI License</th>
           <th>Worker Bonus</th>
           <th>Total Premium Generated</th>
+
+         {this.props.yearlyWorkforce ? <th>Annual Bonus per Worker</th> : null}
       </tr>
     </thead>
     <tbody>
@@ -55,10 +57,16 @@ return (
   style: 'currency',
   currency: 'USD',
 })} </td>
+
                 <td>{((this.props.premium)*(this.props.percentage)).toLocaleString('en-US', {
   style: 'currency',
   currency: 'USD',
 })} </td>
+
+{this.props.yearlyWorkforce ? <td class="worker-column" >{(((this.props.premium)*(this.props.percentage)*.87)/(this.props.yearlyWorkforce)).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})}  </td> : null }
             
             </tr>
         
@@ -97,6 +105,7 @@ generateFirstColumn = () => {
   style: 'currency',
   currency: 'USD',
 })} </td>
+
                 <td>{((prices[name]*this.props.percentage)).toLocaleString('en-US', {
   style: 'currency',
   currency: 'USD',
@@ -104,6 +113,11 @@ generateFirstColumn = () => {
 )
  
 } </td>
+
+              {this.props.yearlyWorkforce ? <td class="worker-column" >{(((prices[name]*this.props.percentage)*.87)/(this.props.yearlyWorkforce)).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>: null }
 
      </tr>
           

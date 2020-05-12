@@ -141,6 +141,12 @@
     width:915px;overflow-x:scroll;
   }
 
+  .worker-column{
+    /* border-left: 1px solid; */
+    background: aliceblue;
+
+  }
+
 
   .div-scroll{
     width: 250%;

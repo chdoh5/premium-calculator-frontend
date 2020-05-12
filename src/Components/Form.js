@@ -19,38 +19,40 @@ class Form extends React.Component {
     constructor(){
         super()
 
-        this.state={
-        // diabled for presentation
-            timingQuestion: "month",
-            modelWorkerBoolean: false,
-            weightInput: "pounds",
-            costco: 0,
-            wholeFoods: 0,
-            foodbuy: 0,
-            percentage: 0, 
-            commoditiesSold: [], 
-            prices: [],
-            weights: {}, 
-            premium: 0,
-            submitted: false,
-            names: []
-
-        }
-// used for dev
         // this.state={
-        //     costco: "10",
-        //     wholeFoods: "5",
-        //     foodbuy: "5",
-        //     percentage: .20,
-        //     commoditiesSold: [{label: "Apple", value: "Apple", price: 0.015}, {label: "Pea", value: "Pea", price: 0.02}],
-        //     prices: {Apple: 15000, Pea: 40000},
-        //     weights: {Apple: 15000, Pea: 40000},
-        //     premium: 55000,
+        // // diabled for presentation
+        //     timingQuestion: "month",
+        //     modelWorkerBoolean: false,
+        //     weightInput: "pounds",
+        //     costco: 0,
+        //     wholeFoods: 0,
+        //     foodbuy: 0,
+        //     percentage: 0, 
+        //     commoditiesSold: [], 
+        //     prices: [],
+        //     weights: {}, 
+        //     premium: 0,
         //     submitted: false,
-        //     weightInput: "pounds", 
-        //     premNoName: [15000, 40000]
+        //     names: [],
+        //     yearlyWorkforce: null
 
         // }
+// used for dev
+        this.state={
+            costco: "10",
+            wholeFoods: "5",
+            foodbuy: "5",
+            percentage: .20,
+            commoditiesSold: [{label: "Apple", value: "Apple", price: 0.015}, {label: "Pea", value: "Pea", price: 0.02}],
+            prices: {Apple: 15000, Pea: 40000},
+            weights: {Apple: 15000, Pea: 40000},
+            premium: 55000,
+            submitted: false,
+            weightInput: "pounds", 
+            premNoName: [15000, 40000], 
+            yearlyWorkforce: null
+
+        }
     }
 
 currencyFormat=(num)=> {
@@ -169,6 +171,15 @@ for (let key in this.state.prices) {
   })
 }
 
+}
+
+yearlyWorkforce = (e) => {
+    let enteredNum = e.target.value.toString()
+    let intNum = parseInt(enteredNum.split().join().replace(/,/g, ''))
+
+    this.setState({
+        yearlyWorkforce: intNum
+    })
 }
 
 
@@ -492,7 +503,7 @@ if(this.state.submitted === false){
             </label>
             
             <div class="input-field inline">
-            <NumberFormat thousandSeparator={true} isNumericString={true} class="right"/>
+            <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.yearlyWorkforce(e)} class="right"/>
             </div>
         <br /><br/>
             
@@ -516,6 +527,7 @@ if(this.state.submitted === false){
             commoditiesSold={this.state.commoditiesSold}
             premNoName={this.state.premNoName}
             data={this.state.data}
+            yearlyWorkforce={this.state.yearlyWorkforce}
             />
         )
     }
