@@ -5,7 +5,7 @@ import MyComponent from './Select'
 import WeightTable from './WeightTable'
 import { commodities } from '../lookup'
 import NumberFormat from 'react-number-format'
-
+import update from 'immutability-helper'
 
 
 import ResultsContainer from '../Containers/ResultsContainer' 
@@ -19,40 +19,54 @@ class Form extends React.Component {
     constructor(){
         super()
 
+        this.state={
+        // diabled for presentation
+            timingQuestion: "month",
+            modelWorkerBoolean: false,
+            weightInput: "pounds",
+            costco: 0,
+            wholeFoods: 0,
+            foodbuy: 0,
+            percentage: 0, 
+            commoditiesSold: [], 
+            prices: [],
+            weights: {}, 
+            premium: 0,
+            submitted: false,
+            names: [],
+            yearlyWorkforce: null, 
+            jan: {},
+            feb: {}, 
+            mar: {}, 
+            apr: {},
+            may: {},
+            jun: {},
+            jul: {},
+            aug: {},
+            sep: {},
+            oct: {},
+            nov: {},
+            dec: {}
+            
+            
+
+        }
+// used for dev
         // this.state={
-        // // diabled for presentation
-        //     timingQuestion: "month",
-        //     modelWorkerBoolean: false,
-        //     weightInput: "pounds",
-        //     costco: 0,
-        //     wholeFoods: 0,
-        //     foodbuy: 0,
-        //     percentage: 0, 
-        //     commoditiesSold: [], 
-        //     prices: [],
-        //     weights: {}, 
-        //     premium: 0,
+        //     costco: "10",
+        //     wholeFoods: "5",
+        //     foodbuy: "5",
+        //     percentage: .20,
+        //     commoditiesSold: [{label: "Apple", value: "Apple", price: 0.015}, {label: "Pea", value: "Pea", price: 0.02}],
+        //     prices: {Apple: 15000, Pea: 40000},
+        //     weights: {Apple: 15000, Pea: 40000},
+        //     premium: 55000,
         //     submitted: false,
-        //     names: [],
+        //     weightInput: "pounds", 
+        //     premNoName: [15000, 40000], 
         //     yearlyWorkforce: null
 
         // }
-// used for dev
-        this.state={
-            costco: "10",
-            wholeFoods: "5",
-            foodbuy: "5",
-            percentage: .20,
-            commoditiesSold: [{label: "Apple", value: "Apple", price: 0.015}, {label: "Pea", value: "Pea", price: 0.02}],
-            prices: {Apple: 15000, Pea: 40000},
-            weights: {Apple: 15000, Pea: 40000},
-            premium: 55000,
-            submitted: false,
-            weightInput: "pounds", 
-            premNoName: [15000, 40000], 
-            yearlyWorkforce: null
-
-        }
     }
 
 currencyFormat=(num)=> {
@@ -128,7 +142,8 @@ determinePremium = (e) => {
   this.setState({
       premium:0,
       prices:[],
-      weights:{}
+      weights:{}, 
+      
   })
 }
 
@@ -139,6 +154,9 @@ collectWeights = (e, name) => {
     const commodity = this.state.commoditiesSold.filter(comm => comm.label === name)
     const price = commodity.map(com => com.price)
     const kPrice = price*2.20462
+    if(this.state.timingQuestion==="month"){
+        {this.monthWeights(e, name)}
+    }
     if(this.state.weightInput==="pounds"){
         let newWeights = this.state.weights
         newWeights[name] = intWeight*price
@@ -167,10 +185,43 @@ let sum = 0;
 for (let key in this.state.prices) {
   sum += this.state.prices[key]
   this.setState({
-      premium: sum
-  })
+      premium: sum,       
+    })}
 }
 
+monthWeights = (e, name) => {
+    
+  
+        let enteredWeight = e.target.value.toString()
+        let intWeight = parseInt(enteredWeight.split().join().replace(/,/g, ''))
+        const commodity = this.state.commoditiesSold.filter(comm => comm.label === name)
+        const price = commodity.map(com => com.price)
+        let month = e.target.dataset.month
+        const kPrice = price*2.20462
+        
+        if(this.state.weightInput==="pounds"){
+            let newWeights = this.state.weights
+            newWeights[name] = intWeight*price
+
+            this.setState({
+                [month]: update(this.state[month], {$merge: newWeights })
+ 
+            })
+            {this.determinePremium(e)}
+
+        }else {
+            let newWeights = this.state.weights
+            newWeights[name] = intWeight*kPrice
+        
+            this.setState({
+                [month]: update(this.state[month], {$merge: newWeights })
+                
+            })
+            {this.determinePremium(e)}
+        }
+    
+        // this.calculatePremium()
+    
 }
 
 yearlyWorkforce = (e) => {

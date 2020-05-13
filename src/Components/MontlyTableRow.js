@@ -7,7 +7,7 @@ class MonthlyTableRow extends React.Component {
     
     render(){
 
-        if(this.props.weightInput==="pounds") {
+        // if(this.props.weightInput==="pounds") {
             return (
                 
                 <tr  >
@@ -19,11 +19,11 @@ class MonthlyTableRow extends React.Component {
                 <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                    <NumberFormat data-month="jan" thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
                 </div>
                 
-                    <span>lbs</span>
+                   { this.props.weightInput==="pounds" ? <span>lbs</span> : <span>kg</span>}
                 </td>
 
                 <td>
@@ -31,11 +31,11 @@ class MonthlyTableRow extends React.Component {
                 <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                    <NumberFormat data-month="feb" thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
                 </div>
                 
-                    <span>lbs</span>
+                   { this.props.weightInput==="pounds" ? <span>lbs</span> : <span>kg</span>}
                 </td>
 
                 <td>
@@ -43,11 +43,11 @@ class MonthlyTableRow extends React.Component {
                 <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                    <NumberFormat data-month="mar" thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
                 </div>
                 
-                    <span>lbs</span>
+                   { this.props.weightInput==="pounds" ? <span>lbs</span> : <span>kg</span>}
                 </td>
 
                 <td>
@@ -55,11 +55,11 @@ class MonthlyTableRow extends React.Component {
                 <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                    <NumberFormat data-month="apr" thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
                 </div>
                 
-                    <span>lbs</span>
+                   { this.props.weightInput==="pounds" ? <span>lbs</span> : <span>kg</span>}
                 </td>
 
                 <td>
@@ -67,11 +67,11 @@ class MonthlyTableRow extends React.Component {
                 <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                    <NumberFormat data-month="may" thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
                 </div>
                 
-                    <span>lbs</span>
+                   { this.props.weightInput==="pounds" ? <span>lbs</span> : <span>kg</span>}
                 </td>
 
                 <td>
@@ -79,11 +79,11 @@ class MonthlyTableRow extends React.Component {
                 <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                    <NumberFormat data-month="jun" thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
                 </div>
                 
-                    <span>lbs</span>
+                   { this.props.weightInput==="pounds" ? <span>lbs</span> : <span>kg</span>}
                 </td>
                 
 
@@ -94,11 +94,11 @@ class MonthlyTableRow extends React.Component {
                 <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                    <NumberFormat data-month="jul" thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
                 </div>
                 
-                    <span>lbs</span>
+                   { this.props.weightInput==="pounds" ? <span>lbs</span> : <span>kg</span>}
                 </td>
 
                 <td>
@@ -106,11 +106,11 @@ class MonthlyTableRow extends React.Component {
                 <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                    <NumberFormat data-month="aug" thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
                 </div>
                 
-                    <span>lbs</span>
+                   { this.props.weightInput==="pounds" ? <span>lbs</span> : <span>kg</span>}
                 </td>
 
                 <td>
@@ -118,11 +118,11 @@ class MonthlyTableRow extends React.Component {
                 <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                    <NumberFormat data-month="sep" thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
                 </div>
                 
-                    <span>lbs</span>
+                   { this.props.weightInput==="pounds" ? <span>lbs</span> : <span>kg</span>}
                 </td>
 
                 <td>
@@ -130,11 +130,11 @@ class MonthlyTableRow extends React.Component {
                 <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                    <NumberFormat data-month="oct" thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
                 </div>
                 
-                    <span>lbs</span>
+                   { this.props.weightInput==="pounds" ? <span>lbs</span> : <span>kg</span>}
                 </td>
 
                 <td>
@@ -142,11 +142,11 @@ class MonthlyTableRow extends React.Component {
                 <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                    <NumberFormat data-month="nov" thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
                 </div>
                 
-                    <span>lbs</span>
+                   { this.props.weightInput==="pounds" ? <span>lbs</span> : <span>kg</span>}
                 </td>
 
                 <td>
@@ -154,11 +154,11 @@ class MonthlyTableRow extends React.Component {
                 <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+                    <NumberFormat data-month="dec" thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
                 </div>
                 
-                    <span>lbs</span>
+                   { this.props.weightInput==="pounds" ? <span>lbs</span> : <span>kg</span>}
                 </td>
                 </div>
                 </div>
@@ -166,23 +166,23 @@ class MonthlyTableRow extends React.Component {
             
             )
 
-        }else {
-            return (
-                <tr>
-                <td>{this.props.name}</td>
-                <td>
-                <div class="input-field inline">
+        // }else {
+        //     return (
+        //         <tr>
+        //         <td>{this.props.name}</td>
+        //         <td>
+        //         <div class="input-field inline">
                 
     
-                    <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
+        //             <NumberFormat thousandSeparator={true} isNumericString={true} onChange={(e)=> this.props.collectWeights(e, this.props.name)} class="right"   />
                    
-                </div>
+        //         </div>
                 
-                    <span>kg</span>
-                </td>
-                </tr>
-            )
-        }
+        //             <span>kg</span>
+        //         </td>
+        //         </tr>
+        //     )
+        // }
 
     } 
 }
