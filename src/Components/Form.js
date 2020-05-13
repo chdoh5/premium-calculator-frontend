@@ -242,36 +242,55 @@ yearlyWorkforce = (e) => {
 
 generateResults = (e) => {
     e.preventDefault()
-    const object1 = this.state.prices
-    let x = []
-       for (let [key, value] of Object.entries(object1)) {
-        x.push(({"commodity":key.replace(/(.{6})..+/, "$1…"),
-                "Admin Offset": value*(this.state.percentage)*.03, 
-                "EFI License": value*(this.state.percentage)*.1,
-                "Worker Bonus": value*(this.state.percentage)*.87}))
-       }
+    if(this.state.timingQuestion==="year"){
+        const object1 = this.state.prices
+        let x = []
+           for (let [key, value] of Object.entries(object1)) {
+            x.push(({"commodity":key.replace(/(.{6})..+/, "$1…"),
+                    "Admin Offset": value*(this.state.percentage)*.03, 
+                    "EFI License": value*(this.state.percentage)*.1,
+                    "Worker Bonus": value*(this.state.percentage)*.87}))
+           }
+    
+        this.setState({
+            submitted: true, 
+            data: x
+        })
+    } else {
+        let foods = Object.keys(this.state.jan)
+        foods.forEach(food => {
+            let com = food
+            let price = this.state.jan[com] + this.state.feb[com] 
+            + this.state.mar[com] + this.state.apr[com] + this.state.may[com] 
+            + this.state.jun[com] + this.state.jul[com] + this.state.aug[com] 
+            + this.state.sep[com] + this.state.oct[com] + this.state.nov[com] 
+            + this.state.dec[com]
+            let newPrices = this.state.prices
+            newPrices[com] = parseFloat(price.toFixed(2))
+            this.setState({
+                prices: newPrices
+            })
+        })
+    }
 
-    this.setState({
-        submitted: true, 
-        data: x
-    })
 }
 
 handleSubmit = (e) => {
 
-    const reqObj = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            generated_at: new Date().toString()
-        })
-    }
-    e.preventDefault()
-    fetch('http://localhost:3000/results', reqObj)
-        .then(resp => resp.json())
-        .then(newResult => this.generateResults(e))  
+    // const reqObj = {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         generated_at: new Date().toString()
+    //     })
+    // }
+    // e.preventDefault()
+    // fetch('http://localhost:3000/results', reqObj)
+    //     .then(resp => resp.json())
+    //     .then(newResult => this.generateResults(e))  
+    this.generateResults(e)
 }
 
 // --------------------------------------------------------------
