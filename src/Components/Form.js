@@ -31,6 +31,7 @@ class Form extends React.Component {
             commoditiesSold: [], 
             prices: [],
             weights: {}, 
+            monthWeights: {},
             premium: 0,
             submitted: false,
             names: [],
@@ -201,13 +202,17 @@ monthWeights = (e, name) => {
         
         if(this.state.weightInput==="pounds"){
             let newWeights = this.state.weights
+            let monthWeights = this.state.monthWeights
             newWeights[name] = intWeight*price
+            monthWeights[name] = intWeight*price
 
             this.setState({
-                [month]: update(this.state[month], {$merge: newWeights })
+                [month]: update(this.state[month], {$merge: newWeights }), 
+                // monthWeights: update(this.state.prices, {[name]: {$apply: function(x) {return x + monthWeights[name] }}}),
+                weights: {}
  
             })
-            {this.determinePremium(e)}
+            // {this.determinePremium(e)}
 
         }else {
             let newWeights = this.state.weights
