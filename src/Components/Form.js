@@ -27,8 +27,15 @@ class Form extends React.Component {
             costco: 0,
             wholeFoods: 0,
             foodbuy: 0,
-            percentage: 0, 
-            commoditiesSold: [], 
+            percentage: .1, 
+            commoditiesSold: [
+                {label: "Banana",
+                price: 0.01,
+                value: "Banana"},
+                {label: "Asparagus",
+                price: 0.02,
+                value: "Asparagus"}
+                ], 
             prices: [],
             weights: {}, 
             monthWeights: {},
@@ -36,18 +43,18 @@ class Form extends React.Component {
             submitted: false,
             names: [],
             yearlyWorkforce: null, 
-            jan: {},
-            feb: {}, 
-            mar: {}, 
-            apr: {},
-            may: {},
-            jun: {},
-            jul: {},
-            aug: {},
-            sep: {},
-            oct: {},
-            nov: {},
-            dec: {}
+            jan: {Asparagus: 200, Banana: 100},
+            feb: {Asparagus: 200, Banana: 100}, 
+            mar: {Asparagus: 200, Banana: 100}, 
+            apr: {Asparagus: 200, Banana: 100},
+            may: {Asparagus: 200, Banana: 100},
+            jun: {Asparagus: 200, Banana: 100},
+            jul: {Asparagus: 200, Banana: 100},
+            aug: {Asparagus: 200, Banana: 100},
+            sep: {Asparagus: 200, Banana: 100},
+            oct: {Asparagus: 200, Banana: 100},
+            nov: {Asparagus: 200, Banana: 100},
+            dec: {Asparagus: 200, Banana: 100}
             
             
 
@@ -222,12 +229,12 @@ monthWeights = (e, name) => {
                 [month]: update(this.state[month], {$merge: newWeights })
                 
             })
-            {this.determinePremium(e)}
+            // {this.determinePremium(e)}
         }
     
         // this.calculatePremium()
     
-}
+    }
 
 yearlyWorkforce = (e) => {
     let enteredNum = e.target.value.toString()
@@ -271,6 +278,20 @@ generateResults = (e) => {
                 prices: newPrices
             })
         })
+        const object1 = this.state.prices
+        let x = []
+           for (let [key, value] of Object.entries(object1)) {
+            x.push(({"commodity":key.replace(/(.{6})..+/, "$1…"),
+                    "Admin Offset": value*(this.state.percentage)*.03, 
+                    "EFI License": value*(this.state.percentage)*.1,
+                    "Worker Bonus": value*(this.state.percentage)*.87}))
+           }
+           this.calculatePremium()
+
+        this.setState({
+            submitted: true, 
+            data: x
+        })
     }
 
 }
@@ -299,7 +320,7 @@ handleSubmit = (e) => {
 if(this.state.submitted === false){
        return(
     <form class="container form">
-<h7>*All data collected annually</h7>
+{/* <h7>*All data collected annually</h7> */}
 <br /><br />
     {/* disabled for presentation */}
 
@@ -603,6 +624,18 @@ if(this.state.submitted === false){
             premNoName={this.state.premNoName}
             data={this.state.data}
             yearlyWorkforce={this.state.yearlyWorkforce}
+            jan={this.state.jan}
+            feb={this.state.feb}
+            mar={this.state.mar}
+            apr={this.state.apr}
+            may={this.state.may}
+            jun={this.state.jun}
+            jul={this.state.jul}
+            aug={this.state.aug}
+            sep={this.state.sep}
+            oct={this.state.oct}
+            nov={this.state.nov}
+            dec={this.state.dec}
             />
         )
     }

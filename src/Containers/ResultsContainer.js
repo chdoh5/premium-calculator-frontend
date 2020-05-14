@@ -36,8 +36,19 @@ class ResultsContainer extends React.Component {
                         premium={this.props.premium}
                         prices={this.props.prices} 
                         commoditiesSold={this.props.commoditiesSold}
-                        premNoName={this.props.premNoName}
                         data={this.props.data}
+                        jan={this.props.jan}
+                        feb={this.props.feb}
+                        mar={this.props.mar}
+                        apr={this.props.apr}
+                        may={this.props.may}
+                        jun={this.props.jun}
+                        jul={this.props.jul}
+                        aug={this.props.aug}
+                        sep={this.props.sep}
+                        oct={this.props.oct}
+                        nov={this.props.nov}
+                        dec={this.props.dec}
                         />
                 </div>
             )

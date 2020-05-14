@@ -1,18 +1,112 @@
 import React from 'react';
-
-
-
+import BarChart from './TestChart/BarChart'
+import PieChart from './TestChart/PieChart'
 
 
 class MonthlyPremiumResults extends React.Component {
+
+    constructor(){
+        super() 
+
+        this.state={
+            months: ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+        }
+    }
+    
+    componentDidMount() {
+        window.scrollTo(0, 0)
+      }
+    
+      currencyFormat=(num)=> {
+        return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+      }
+    
+        
     
     
-    render(){
-        return (
-            <div>
-            </div>
-        )
-    } 
+    printPage = () => {
+      //Get the print button and put it into a variable
+      let printButton = document.getElementById("start-calculator-button");
+      //Set the print button visibility to 'hidden' 
+      printButton.style.visibility = 'hidden';
+      //Print the page content
+      window.print()
+      printButton.style.visibility = 'visible';
+    }
+    
+        render(){
+
+            const names = this.props.commoditiesSold.map(com => com.label)
+            const prices = this.props.prices
+            
+            return (
+                <div id="element-to-print" class="premium-message" >
+                    <h3 class="premium-header">Monthly Premium Results</h3>
+                        <p >
+                        Based on your sales, you can expect roughly the following total premium
+                        amounts per year.  Premium is calculated as a total premium and divided 
+                        between Admin (3%), EFI Licensing Fee (10%), and Worker Bonus (87%).
+                        </p>
+                
+                
+                    <table>
+                    <thead>
+                        <tr>
+                            <th>Commodity</th>
+                            <th>Administrative Offset</th>
+                            <th>EFI License</th>
+                            <th>Worker Bonus</th>
+                            <th>Total Premium Generated</th>
+
+                            {this.props.yearlyWorkforce ? <th>Annual Bonus per Worker</th> : null}
+                        </tr>
+                    </thead>
+                    
+                    
+                    
+                      
+                    
+                       {names.map(name => 
+                       
+                           this.state.months.map(month => {
+                            return <tbody> 
+                            <tr>{name}</tr>
+                            <tr>
+                                <td>{month}</td>
+                                <td>10</td>
+                                <td>20</td>
+                                <td>30</td>
+                            </tr>
+                           
+                            
+                            </tbody>
+                           }))}
+                            
+
+                         
+                    
+                    
+                    </table>
+    
+{/* -------------     */}
+                
+    
+                  <div style={{height: 500}}>
+                    <div style={{height:400}}   className="pie">
+                    <h6 class='title'>Premium Distribution Breakdown</h6>
+                    <PieChart  />
+                    </div>
+                    <div class="bar">
+                    <BarChart  data={this.props.data} commoditiesSold={this.props.commoditiesSold} percentage={this.props.percentage} prices={this.props.prices} />
+                    
+                    </div>
+                    <div>
+                  <button  id="start-calculator-button" className="btn-large generate-results-button" onClick={this.printPage}>Save to PDF</button>
+                  </div>
+                </div>
+                </div>
+            )
+        } 
 }
 
 
