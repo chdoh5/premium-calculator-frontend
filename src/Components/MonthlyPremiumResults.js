@@ -15,13 +15,97 @@ class MonthlyPremiumResults extends React.Component {
     
     componentDidMount() {
         window.scrollTo(0, 0)
-      }
+    }
     
-      currencyFormat=(num)=> {
-        return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-      }
-    
+    currencyFormat=(num)=> {
+    return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
+    generateTable = () => {
+        const names = this.props.commoditiesSold.map(com => com.label)
+        const prices = this.props.prices
         
+      
+
+       return names.map(name => {
+            return   <> <tr class="bold">  
+            <td>{name}</td>
+            <td>{((prices[name]*this.props.percentage)*.03).toLocaleString('en-US', {
+style: 'currency',
+currency: 'USD',
+})
+} </td>
+            <td>{((prices[name]*this.props.percentage)*.1).toLocaleString('en-US', {
+style: 'currency',
+currency: 'USD',
+})} </td>
+            <td>{((prices[name]*this.props.percentage)*.87).toLocaleString('en-US', {
+style: 'currency',
+currency: 'USD',
+})} </td>
+
+            <td>{((prices[name]*this.props.percentage)).toLocaleString('en-US', {
+style: 'currency',
+currency: 'USD',
+}
+)
+
+} </td>
+
+          {this.props.yearlyWorkforce ? <td class="worker-column" >{(((prices[name]*this.props.percentage)*.87)/(this.props.yearlyWorkforce)).toLocaleString('en-US', {
+style: 'currency',
+currency: 'USD',
+})} </td>: null }
+
+ </tr>
+       {this.generateMonths(name)}</>
+        
+        })
+    }
+    
+     generateMonths = (name) => {
+         console.log(name)
+         let i
+        const names = this.props.commoditiesSold.map(com => com.label)
+
+        return this.state.months.map(month => {
+          
+         
+            return <tr>  
+            
+            <td class="capital" >{month}</td>
+            <td>{((this.props[month][name]*this.props.percentage)*.03).toLocaleString('en-US', {
+style: 'currency',
+currency: 'USD',
+})
+} </td>
+            {/* <td>{((this.props[month][name]*this.props.percentage)*.1).toLocaleString('en-US', {
+style: 'currency',
+currency: 'USD',
+})} </td>
+            <td>{((this.props[month][name]*this.props.percentage)*.87).toLocaleString('en-US', {
+style: 'currency',
+currency: 'USD',
+})} </td>
+
+            <td>{((this.props[month][name]*this.props.percentage)).toLocaleString('en-US', {
+style: 'currency',
+currency: 'USD',
+}
+)
+
+} </td>
+
+          {this.props.yearlyWorkforce ? <td class="worker-column" >{(((this.props[month][name]*this.props.percentage)*.87)/(this.props.yearlyWorkforce)).toLocaleString('en-US', {
+style: 'currency',
+currency: 'USD',
+})} </td>: null } */}
+
+ </tr>
+        
+})
+       
+     }
     
     
     printPage = () => {
@@ -61,26 +145,14 @@ class MonthlyPremiumResults extends React.Component {
                             {this.props.yearlyWorkforce ? <th>Annual Bonus per Worker</th> : null}
                         </tr>
                     </thead>
-                    
+                    <tbody>
+                        {this.generateTable()}
+                    </tbody>
                     
                     
                       
                     
-                       {names.map(name => 
-                       
-                           this.state.months.map(month => {
-                            return <tbody> 
-                            <tr>{name}</tr>
-                            <tr>
-                                <td>{month}</td>
-                                <td>10</td>
-                                <td>20</td>
-                                <td>30</td>
-                            </tr>
-                           
-                            
-                            </tbody>
-                           }))}
+                      
                             
 
                          

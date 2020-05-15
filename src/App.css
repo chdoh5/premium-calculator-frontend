@@ -147,6 +147,14 @@
 
   }
 
+  .bold{
+    font-weight: bold;
+  }
+
+  .capital{
+    text-transform: capitalize;
+  }
+
 
   .div-scroll{
     width: 250%;
