@@ -28,7 +28,7 @@ class MonthlyPremiumResults extends React.Component {
       
 
        return names.map(name => {
-            return   <> <tr class="bold">  
+            return   <> <tr class=" light-green lighten-5 bold">  
             <td>{name}</td>
             <td>{((prices[name]*this.props.percentage)*.03).toLocaleString('en-US', {
 style: 'currency',
@@ -52,7 +52,7 @@ currency: 'USD',
 
 } </td>
 
-          {this.props.yearlyWorkforce ? <td class="worker-column" >{(((prices[name]*this.props.percentage)*.87)/(this.props.yearlyWorkforce)).toLocaleString('en-US', {
+          {this.props.monthlyWorkforce ? <td class="worker-column" >{(((prices[name]*this.props.percentage)*.87)/(this.props.yearlyWorkforce)).toLocaleString('en-US', {
 style: 'currency',
 currency: 'USD',
 })} </td>: null }
@@ -79,7 +79,7 @@ style: 'currency',
 currency: 'USD',
 })
 } </td>
-            {/* <td>{((this.props[month][name]*this.props.percentage)*.1).toLocaleString('en-US', {
+            <td>{((this.props[month][name]*this.props.percentage)*.1).toLocaleString('en-US', {
 style: 'currency',
 currency: 'USD',
 })} </td>
@@ -96,10 +96,10 @@ currency: 'USD',
 
 } </td>
 
-          {this.props.yearlyWorkforce ? <td class="worker-column" >{(((this.props[month][name]*this.props.percentage)*.87)/(this.props.yearlyWorkforce)).toLocaleString('en-US', {
+          {this.props.monthlyWorkforce ? <td class="worker-column" >{(((this.props[month][name]*this.props.percentage)*.87)/(this.props.monthlyWorkforce[month])).toLocaleString('en-US', {
 style: 'currency',
 currency: 'USD',
-})} </td>: null } */}
+})} </td>: null }
 
  </tr>
         
@@ -133,7 +133,7 @@ currency: 'USD',
                         </p>
                 
                 
-                    <table>
+                    <table class="highlight results">
                     <thead>
                         <tr>
                             <th>Commodity</th>
@@ -147,18 +147,37 @@ currency: 'USD',
                     </thead>
                     <tbody>
                         {this.generateTable()}
-                    </tbody>
-                    
-                    
-                      
-                    
-                      
-                            
+                        <tr></tr>
+            <tr id="grand-total-row">
+                <td>Grand Total:</td>
+               <td>{((this.props.premium)*(this.props.percentage)*.03).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>
+                <td>{((this.props.premium)*(this.props.percentage)*.1).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>
+                <td>{((this.props.premium)*(this.props.percentage)*.87).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>
 
-                         
-                    
-                    
-                    </table>
+                <td>{((this.props.premium)*(this.props.percentage)).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})} </td>
+
+{this.props.monthlyWorkforce ? <td class="worker-column" >{(((this.props.premium)*(this.props.percentage)*.87)/(this.props.yearlyWorkforce)).toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})}  </td> : null }
+            
+            </tr>
+        
+    </tbody>
+ 
+  </table>
     
 {/* -------------     */}
                 

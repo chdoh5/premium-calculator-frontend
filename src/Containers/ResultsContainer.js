@@ -37,6 +37,8 @@ class ResultsContainer extends React.Component {
                         prices={this.props.prices} 
                         commoditiesSold={this.props.commoditiesSold}
                         data={this.props.data}
+                        monthlyWorkforce={this.props.monthlyWorkforce}
+                        yearlyWorkforce={this.props.yearlyWorkforce}
                         jan={this.props.jan}
                         feb={this.props.feb}
                         mar={this.props.mar}
