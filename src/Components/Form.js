@@ -43,7 +43,7 @@ class Form extends React.Component {
             submitted: false,
             names: [],
             yearlyWorkforce: null,
-            monthlyWorkforce: {}, 
+            monthlyWorkforce: 0,
             jan: {Asparagus: 200, Banana: 100},
             feb: {Asparagus: 200, Banana: 100}, 
             mar: {Asparagus: 200, Banana: 100}, 
@@ -126,7 +126,7 @@ handleFoodbuyChange = (e) => {
 
 getPercentage = () => {
     this.setState({
-        percentage: (parseInt(this.state.costco) + parseInt(this.state.wholeFoods) + parseInt(this.state.foodbuy))*.01
+        percentage: (parseInt(this.state.costco || 0 ) + parseInt(this.state.wholeFoods || 0 ) + parseInt(this.state.foodbuy || 0 ))*.01
     })
 }
 
@@ -159,7 +159,7 @@ determinePremium = (e) => {
 collectWeights = (e, name) => {
   
     let enteredWeight = e.target.value.toString()
-    let intWeight = parseInt(enteredWeight.split().join().replace(/,/g, ''))
+    let intWeight = parseInt(enteredWeight.split().join().replace(/,/g, '') || 0 )
     const commodity = this.state.commoditiesSold.filter(comm => comm.label === name)
     const price = commodity.map(com => com.price)
     const kPrice = price*2.20462
@@ -202,7 +202,7 @@ monthWeights = (e, name) => {
     
   
         let enteredWeight = e.target.value.toString()
-        let intWeight = parseInt(enteredWeight.split().join().replace(/,/g, ''))
+        let intWeight = parseInt(enteredWeight.split().join().replace(/,/g, '') || 0 )
         const commodity = this.state.commoditiesSold.filter(comm => comm.label === name)
         const price = commodity.map(com => com.price)
         let month = e.target.dataset.month
@@ -239,7 +239,7 @@ monthWeights = (e, name) => {
 
 yearlyWorkforce = (e) => {
     let enteredNum = e.target.value.toString()
-    let intNum = parseInt(enteredNum.split().join().replace(/,/g, ''))
+    let intNum = parseInt(enteredNum.split().join().replace(/,/g, '') || 0 )
 
     this.setState({
         yearlyWorkforce: intNum
@@ -274,7 +274,7 @@ generateResults = (e) => {
             + this.state.sep[com] + this.state.oct[com] + this.state.nov[com] 
             + this.state.dec[com]
             let newPrices = this.state.prices
-            newPrices[com] = parseFloat(price.toFixed(2))
+            newPrices[com] = parseFloat(price.toFixed(2) || 0 )
             this.setState({
                 prices: newPrices
             })
@@ -299,14 +299,16 @@ generateResults = (e) => {
 
 monthlyWorkers = (e) => {
 
-    let enteredNum = e.target.value.toString()
-    let num = parseInt(enteredNum.split().join().replace(/,/g, ''))
+    let enteredNum = e.target.value.toString() 
+    let num = parseInt(enteredNum.split().join().replace(/,/g, '') || 0 )
 
     let month = e.target.dataset.month
 
     this.setState({
-        monthlyWorkforce:   {...this.state.monthlyWorkforce, [month]: num}, 
+        monthlyWorkforce:   {...this.state.monthlyWorkforce, [month]: num || 0 } , 
     })
+
+
     
 }
 
@@ -407,7 +409,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline ">
-                        <input  value={this.state.costco} onKeyUp={this.getPercentage} onChange={this.handleCostcoChange} class="right " type="number"/>
+                        <input value={this.state.costco} onKeyUp={this.getPercentage} onChange={this.handleCostcoChange} class="right " type="number"/>
                     </div>
                     <span class="form-label">%</span>
                     </td>

@@ -51,11 +51,11 @@ currency: 'USD',
 )
 
 } </td>
-
-          {this.props.monthlyWorkforce ? <td class="worker-column" >{(((prices[name]*this.props.percentage)*.87)/(this.props.yearlyWorkforce)).toLocaleString('en-US', {
+<td></td>
+          {/* {this.props.monthlyWorkforce ? <td class="worker-column" >{(((prices[name]*this.props.percentage)*.87)/(this.props.yearlyWorkforce)).toLocaleString('en-US', {
 style: 'currency',
 currency: 'USD',
-})} </td>: null }
+})} </td>: null } */}
 
  </tr>
        {this.generateMonths(name)}</>
@@ -96,7 +96,7 @@ currency: 'USD',
 
 } </td>
 
-          {this.props.monthlyWorkforce ? <td class="worker-column" >{(((this.props[month][name]*this.props.percentage)*.87)/(this.props.monthlyWorkforce[month])).toLocaleString('en-US', {
+          {this.props.monthlyWorkforce ? <td class="worker-column" >{(((this.props[month][name]*this.props.percentage)*.87)/(this.props.monthlyWorkforce[month]) || 0 ).toLocaleString('en-US', {
 style: 'currency',
 currency: 'USD',
 })} </td>: null }
@@ -142,7 +142,7 @@ currency: 'USD',
                             <th>Worker Bonus</th>
                             <th>Total Premium Generated</th>
 
-                            {this.props.yearlyWorkforce ? <th>Annual Bonus per Worker</th> : null}
+                            {this.props.yearlyWorkforce ? <th>Monthly Bonus per Worker</th> : null}
                         </tr>
                     </thead>
                     <tbody>
@@ -168,10 +168,10 @@ currency: 'USD',
   currency: 'USD',
 })} </td>
 
-{this.props.monthlyWorkforce ? <td class="worker-column" >{(((this.props.premium)*(this.props.percentage)*.87)/(this.props.yearlyWorkforce)).toLocaleString('en-US', {
+{this.props.monthlyWorkforce && !this.props.monthlyWorkforce==={} ? <td class="worker-column" >{(((this.props.premium)*(this.props.percentage)*.87)/(this.props.yearlyWorkforce)).toLocaleString('en-US', {
   style: 'currency',
   currency: 'USD',
-})}  </td> : null }
+})}  </td> : <td></td> }
             
             </tr>
         
