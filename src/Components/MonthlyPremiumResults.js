@@ -9,12 +9,65 @@ class MonthlyPremiumResults extends React.Component {
         super() 
 
         this.state={
-            months: ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+            months: ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 
+            monthData: [{
+                "id": "bonus", 
+                "color": "hsl(147, 70%, 50%)", 
+                "data":  [
+                    {
+                    }
+                ]
+            }]
         }
     }
     
     componentDidMount() {
+
+        let arr = []
+        let sumArr = []
+
+    let sum = arr.reduce(function(a, b){
+        return a + b;
+        }, 0);
+        
         window.scrollTo(0, 0)
+
+        this.state.months.map(month => {
+            arr = (Object.values(this.props[month]))
+            let sum = arr.reduce(function(a, b){
+                return a + b;
+            }, 0 )
+            sumArr.push(sum)
+        })
+        this.setState({
+            monthData: [{...this.state.monthData, "data": [
+                {
+                "x": "Jan",
+                "y": sumArr[0]*this.props.percentage}, 
+                {"x": "Feb", 
+                "y": sumArr[1]*this.props.percentage},
+                {"x": "Mar",
+                "y": sumArr[2]*this.props.percentage},
+                {"x": "Apr",
+                "y": sumArr[3]*this.props.percentage},
+                {"x": "May",
+                "y": sumArr[4]*this.props.percentage},
+                {"x": "Jun",
+                "y": sumArr[5]*this.props.percentage},
+                {"x": "Jul",
+                "y": sumArr[6]*this.props.percentage},
+                {"x": "Aug",
+                "y": sumArr[7]*this.props.percentage},
+                {"x": "Sep",
+                "y": sumArr[8]*this.props.percentage},
+                {"x": "Oct",
+                "y": sumArr[9]*this.props.percentage},
+                {"x": "Nov",
+                "y": sumArr[10]*this.props.percentage},
+                {"x": "Dec",
+                "y": sumArr[11]*this.props.percentage}
+            ] }]
+        })    
     }
     
     currencyFormat=(num)=> {

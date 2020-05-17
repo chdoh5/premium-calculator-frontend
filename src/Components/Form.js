@@ -45,8 +45,8 @@ class Form extends React.Component {
             yearlyWorkforce: null,
             monthlyWorkforce: 0,
             jan: {Asparagus: 200, Banana: 100},
-            feb: {Asparagus: 200, Banana: 100}, 
-            mar: {Asparagus: 200, Banana: 100}, 
+            feb: {Asparagus: 300, Banana: 200}, 
+            mar: {Asparagus: 400, Banana: 100}, 
             apr: {Asparagus: 200, Banana: 100},
             may: {Asparagus: 200, Banana: 100},
             jun: {Asparagus: 200, Banana: 100},
@@ -55,7 +55,9 @@ class Form extends React.Component {
             sep: {Asparagus: 200, Banana: 100},
             oct: {Asparagus: 200, Banana: 100},
             nov: {Asparagus: 200, Banana: 100},
-            dec: {Asparagus: 200, Banana: 100}
+            dec: {Asparagus: 200, Banana: 100}, 
+
+
             
             
 
