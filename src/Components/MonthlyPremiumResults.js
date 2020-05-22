@@ -1,6 +1,8 @@
 import React from 'react';
 import BarChart from './TestChart/BarChart'
 import PieChart from './TestChart/PieChart'
+import LineChart from './TestChart/LineChart'
+
 
 
 class MonthlyPremiumResults extends React.Component {
@@ -43,29 +45,29 @@ class MonthlyPremiumResults extends React.Component {
             monthData: [{...this.state.monthData, "data": [
                 {
                 "x": "Jan",
-                "y": sumArr[0]*this.props.percentage}, 
+                "y": sumArr[0]*this.props.percentage*.87}, 
                 {"x": "Feb", 
-                "y": sumArr[1]*this.props.percentage},
+                "y": sumArr[1]*this.props.percentage*.87},
                 {"x": "Mar",
-                "y": sumArr[2]*this.props.percentage},
+                "y": sumArr[2]*this.props.percentage*.87},
                 {"x": "Apr",
-                "y": sumArr[3]*this.props.percentage},
+                "y": sumArr[3]*this.props.percentage*.87},
                 {"x": "May",
-                "y": sumArr[4]*this.props.percentage},
+                "y": sumArr[4]*this.props.percentage*.87},
                 {"x": "Jun",
-                "y": sumArr[5]*this.props.percentage},
+                "y": sumArr[5]*this.props.percentage*.87},
                 {"x": "Jul",
-                "y": sumArr[6]*this.props.percentage},
+                "y": sumArr[6]*this.props.percentage*.87},
                 {"x": "Aug",
-                "y": sumArr[7]*this.props.percentage},
+                "y": sumArr[7]*this.props.percentage*.87},
                 {"x": "Sep",
-                "y": sumArr[8]*this.props.percentage},
+                "y": sumArr[8]*this.props.percentage*.87},
                 {"x": "Oct",
-                "y": sumArr[9]*this.props.percentage},
+                "y": sumArr[9]*this.props.percentage*.87},
                 {"x": "Nov",
-                "y": sumArr[10]*this.props.percentage},
+                "y": sumArr[10]*this.props.percentage*.87},
                 {"x": "Dec",
-                "y": sumArr[11]*this.props.percentage}
+                "y": sumArr[11]*this.props.percentage*.87}
             ] }]
         })    
     }
@@ -244,6 +246,10 @@ currency: 'USD',
                     <BarChart  data={this.props.data} commoditiesSold={this.props.commoditiesSold} percentage={this.props.percentage} prices={this.props.prices} />
                     
                     </div>
+                   
+                    <LineChart monthData={this.state.monthData} />
+                   
+                    <div></div>
                     <div>
                   <button  id="start-calculator-button" className="btn-large generate-results-button" onClick={this.printPage}>Save to PDF</button>
                   </div>
