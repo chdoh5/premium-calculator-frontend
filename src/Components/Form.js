@@ -21,43 +21,37 @@ class Form extends React.Component {
 
         this.state={
         // diabled for presentation
-            timingQuestion: "month",
+            timingQuestion: null,
             modelWorkerBoolean: false,
-            weightInput: "pounds",
+            weightInput: null,
             costco: 0,
             wholeFoods: 0,
             foodbuy: 0,
-            percentage: .1, 
+            percentage: 0, 
             commoditiesSold: [
-                {label: "Banana",
-                price: 0.01,
-                value: "Banana"},
-                {label: "Asparagus",
-                price: 0.02,
-                value: "Asparagus"}
+             
                 ], 
-            prices: [],
+            prices: {},
             weights: {}, 
             monthWeights: {},
             premium: 0,
             submitted: false,
             names: [],
-            yearlyWorkforce: null,
-            monthlyWorkforce: 0,
-            jan: {Asparagus: 400, Banana: 100},
-            feb: {Asparagus: 300, Banana: 200}, 
-            mar: {Asparagus: 400, Banana: 100}, 
-            apr: {Asparagus: 300, Banana: 200},
-            may: {Asparagus: 400, Banana: 100},
-            jun: {Asparagus: 300, Banana: 200},
-            jul: {Asparagus: 400, Banana: 100},
-            aug: {Asparagus: 300, Banana: 200},
-            sep: {Asparagus: 400, Banana: 100},
-            oct: {Asparagus: 300, Banana: 200},
-            nov: {Asparagus: 400, Banana: 100},
-            dec: {Asparagus: 300, Banana: 200}, 
-
-
+            yearlyWorkforce: 0,
+            monthlyWorkforce: {
+                },
+            jan: {},
+            feb: {}, 
+            mar: {}, 
+            apr: {},
+            may: {},
+            jun: {},
+            jul: {},
+            aug: {},
+            sep: {},
+            oct: {},
+            nov: {},
+            dec: {}, 
             
             
 

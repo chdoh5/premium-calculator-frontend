@@ -9,12 +9,13 @@ class LineChart extends React.Component {
 
         return (
           
-            
-            <div style={{fontWeight:"bold"}} class="chart">
+         
+            <div style={{height:700}} class="">
+           
                 <ResponsiveLine
-
+                
         data={this.props.monthData}
-        margin={{ top: 50, right: 110, bottom: 300, left: 60 }}
+        margin={{ top: 50, right: 200, bottom: 300, left: 100 }}
         xScale={{ type: 'point' }}
         yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}
         axisTop={null}
@@ -24,7 +25,7 @@ class LineChart extends React.Component {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'transportation',
+            legend: 'month',
             legendOffset: 36,
             legendPosition: 'middle'
         }}
@@ -33,15 +34,19 @@ class LineChart extends React.Component {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'count',
-            legendOffset: -40,
-            legendPosition: 'middle'
+            legend: 'worker bonus',
+            legendOffset: -70,
+            legendPosition: 'middle',
+            format: value =>
+                `$${Number(value).toLocaleString( {
+                    minimumFractionDigits: 2,
+                })} `,
         }}
-        colors={{ scheme: 'nivo' }}
+        colors={["#507638"]}
         pointSize={10}
-        pointColor={{ theme: 'background' }}
+        pointColor={ "#507638" }
         pointBorderWidth={2}
-        pointBorderColor={{ from: 'serieColor' }}
+        pointBorderColor={ "#507638" }
         pointLabel="y"
         pointLabelYOffset={-12}
         useMesh={true}
@@ -71,8 +76,8 @@ class LineChart extends React.Component {
                 ]
             }
         ]}
-    />
-    </div>
+    /><h4 class="worker-title">Worker Bonus</h4></div>
+   
         )
    
 }}

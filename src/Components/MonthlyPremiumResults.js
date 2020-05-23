@@ -13,13 +13,14 @@ class MonthlyPremiumResults extends React.Component {
         this.state={
             months: ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 
             monthData: [{
-                "id": "bonus", 
-                "color": "hsl(147, 70%, 50%)", 
+                "id": "worker bonus", 
+                colors: ["#507638"], 
                 "data":  [
                     {
                     }
                 ]
             }]
+
         }
     }
     
@@ -237,7 +238,7 @@ currency: 'USD',
 {/* -------------     */}
                 
     
-                  <div style={{height: 500}}>
+                  <div style={{height: 900}}>
                     <div style={{height:400}}   className="pie">
                     <h6 class='title'>Premium Distribution Breakdown</h6>
                     <PieChart  />
@@ -246,12 +247,14 @@ currency: 'USD',
                     <BarChart  data={this.props.data} commoditiesSold={this.props.commoditiesSold} percentage={this.props.percentage} prices={this.props.prices} />
                     
                     </div>
+                   <div  >
                    
                     <LineChart monthData={this.state.monthData} />
-                   
+                    
+                    </div>
                     <div></div>
-                    <div>
-                  <button  id="start-calculator-button" className="btn-large generate-results-button" onClick={this.printPage}>Save to PDF</button>
+                    <div class="print">
+                  <button  id="start-calculator-button" className="btn-large generate-results-button " onClick={this.printPage}>Save to PDF</button>
                   </div>
                 </div>
                 </div>
