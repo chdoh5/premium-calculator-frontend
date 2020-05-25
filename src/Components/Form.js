@@ -223,7 +223,8 @@ monthWeights = (e, name) => {
             newWeights[name] = intWeight*kPrice
         
             this.setState({
-                [month]: update(this.state[month], {$merge: newWeights })
+                [month]: update(this.state[month], {$merge: newWeights }),
+                weights: {}
                 
             })
             // {this.determinePremium(e)}
@@ -462,7 +463,9 @@ if(this.state.submitted === false){
         </div>
         
             <label class="form-label">
-                Enter weight of commodities sold annually
+                Enter weight of commodities sold  {this.state.timingQuestion==="year" ? "annually" : "per month" }
+            <br />
+            <sup style={{fontSize:16}}>Enter "0" if nothing sold that month</sup>
             </label>
             <br /><br/>
             <table class="center centered striped">
@@ -501,7 +504,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline ">
-                       <NumberFormat data-month="jan" onChange={(e) => {this.monthlyWorkers(e)}}  thousandSeparator={true} isNumericString={true} class="right"/>
+                       <NumberFormat defaultValue="0" data-month="jan" onChange={(e) => {this.monthlyWorkers(e)}}  thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -511,7 +514,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                       <NumberFormat data-month="feb" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
+                       <NumberFormat  defaultValue="0" data-month="feb" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -521,7 +524,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <NumberFormat data-month="mar" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
+                        <NumberFormat  defaultValue="0" data-month="mar" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -530,7 +533,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <NumberFormat data-month="apr" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
+                        <NumberFormat  defaultValue="0" data-month="apr" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -539,7 +542,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <NumberFormat data-month="may" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
+                        <NumberFormat  defaultValue="0" data-month="may" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -548,7 +551,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <NumberFormat data-month="jun" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
+                        <NumberFormat  defaultValue="0" data-month="jun" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -569,7 +572,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <NumberFormat data-month="jul" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
+                        <NumberFormat  defaultValue="0" data-month="jul" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -578,7 +581,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <NumberFormat data-month="aug" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
+                        <NumberFormat  defaultValue="0" data-month="aug" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -587,7 +590,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <NumberFormat data-month="sep" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
+                        <NumberFormat  defaultValue="0" data-month="sep" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -596,7 +599,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <NumberFormat data-month="oct" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
+                        <NumberFormat  defaultValue="0" data-month="oct" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -605,7 +608,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <NumberFormat data-month="nov" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
+                        <NumberFormat  defaultValue="0" data-month="nov" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
@@ -614,7 +617,7 @@ if(this.state.submitted === false){
                     <td>
 
                     <div class="input-field inline">
-                        <NumberFormat data-month="dec" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
+                        <NumberFormat  defaultValue="0" data-month="dec" onChange={(e) => {this.monthlyWorkers(e)}} thousandSeparator={true} isNumericString={true} class="right"/>
                     </div>
                     </td>
                     </tr>
