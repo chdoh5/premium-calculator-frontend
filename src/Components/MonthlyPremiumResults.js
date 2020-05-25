@@ -180,7 +180,7 @@ currency: 'USD',
             const prices = this.props.prices
             
             return (
-                <div id="element-to-print" class="premium-message" >
+                <div id="element-to-print" class="premium-message head" >
                     <h3 class="premium-header">Monthly Premium Results</h3>
                         <p >
                         Based on your sales, you can expect roughly the following total premium
@@ -189,7 +189,7 @@ currency: 'USD',
                         </p>
                 
                 
-                    <table class="highlight results">
+                    <table class="highlight results table">
                     <thead>
                         <tr>
                             <th>Commodity</th>
@@ -238,7 +238,7 @@ currency: 'USD',
 {/* -------------     */}
                 
     
-                  <div style={{height: 900}}>
+                  <div class="charts" >
                     <div style={{height:400}}   className="pie">
                     <h6 class='title'>Premium Distribution Breakdown</h6>
                     <PieChart  />
@@ -247,17 +247,19 @@ currency: 'USD',
                     <BarChart  data={this.props.data} commoditiesSold={this.props.commoditiesSold} percentage={this.props.percentage} prices={this.props.prices} />
                     
                     </div>
-                   <div  >
+                   <div class="line" >
                    
                     <LineChart monthData={this.state.monthData} />
                     
                     </div>
                     <div></div>
-                    <div class="print">
-                  <button  id="start-calculator-button" className="btn-large generate-results-button " onClick={this.printPage}>Save to PDF</button>
+                    <div >
                   </div>
                 </div>
+                <button  id="start-calculator-button" className="btn-large generate-results-button print" onClick={this.printPage}>Save to PDF</button>
+
                 </div>
+                
             )
         } 
 }

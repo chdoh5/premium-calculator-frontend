@@ -10,7 +10,7 @@ class LineChart extends React.Component {
         return (
           
          
-            <div style={{height:700}} class="">
+            <div style={{height:700} } class="over">
            
                 <ResponsiveLine
                 
@@ -50,32 +50,33 @@ class LineChart extends React.Component {
         pointLabel="y"
         pointLabelYOffset={-12}
         useMesh={true}
-        legends={[
-            {
-                anchor: 'bottom-right',
-                direction: 'column',
-                justify: false,
-                translateX: 100,
-                translateY: 0,
-                itemsSpacing: 0,
-                itemDirection: 'left-to-right',
-                itemWidth: 80,
-                itemHeight: 20,
-                itemOpacity: 0.75,
-                symbolSize: 12,
-                symbolShape: 'circle',
-                symbolBorderColor: 'rgba(0, 0, 0, .5)',
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemBackground: 'rgba(0, 0, 0, .03)',
-                            itemOpacity: 1
-                        }
-                    }
-                ]
-            }
-        ]}
+        // legends={[
+        //     {
+        //         anchor: 'bottom-right',
+        //         colors: "#507638",
+        //         direction: 'column',
+        //         justify: false,
+        //         translateX: 100,
+        //         translateY: 0,
+        //         itemsSpacing: 0,
+        //         itemDirection: 'left-to-right',
+        //         itemWidth: 80,
+        //         itemHeight: 20,
+        //         itemOpacity: 0.75,
+        //         symbolSize: 12,
+        //         symbolShape: 'circle',
+        //         symbolBorderColor: 'rgba(0, 0, 0, .5)',
+        //         effects: [
+        //             {
+        //                 on: 'hover',
+        //                 style: {
+        //                     itemBackground: 'rgba(0, 0, 0, .03)',
+        //                     itemOpacity: 10
+        //                 }
+        //             }
+        //         ]
+        //     }
+        // ]}
     /><h4 class="worker-title">Worker Bonus</h4></div>
    
         )

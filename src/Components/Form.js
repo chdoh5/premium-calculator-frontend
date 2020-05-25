@@ -37,7 +37,7 @@ class Form extends React.Component {
             premium: 0,
             submitted: false,
             names: [],
-            yearlyWorkforce: 0,
+            yearlyWorkforce: null,
             monthlyWorkforce: {
                 },
             jan: {},
@@ -335,8 +335,12 @@ handleSubmit = (e) => {
     // fetch('http://localhost:3000/results', reqObj)
     //     .then(resp => resp.json())
     //     .then(newResult => this.generateResults(e))
-    this.calculateYearly()
-    this.generateResults(e)
+    if(this.state.timingQuestion === "month"){
+        this.calculateYearly()
+        this.generateResults(e)
+    } else {
+        this.generateResults(e)
+    }
 }
 
 // --------------------------------------------------------------

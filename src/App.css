@@ -1,3 +1,31 @@
+@media print {
+  .table { 
+    page-break-after: always;
+      
+  }
+
+  .charts{
+    padding-top: 30px;
+  }
+
+  .fixed_header{
+    display: none;
+  }
+
+  .head { 
+    margin-top: -200px
+  }
+
+  .worker-title{
+    display: none;
+  }
+
+  .line{
+    page-break-before: always;
+    margin-top: 30px
+  }
+}
+
 .App {
   font-family: 'Open Sans', sans-serif;
   color: #20301A;
@@ -119,16 +147,28 @@
     box-shadow: 0 6px 6px 0 rgba(0,0,0,0.14), 0 6px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
   }
 
+  .year-print{
+    margin-left: 42%;
+    margin-top: 10px;
+    margin-bottom: 10px
+  }
+
   .print{
-    position: absolute;
-right:    50%;
-bottom:   -270%;
+  margin-top: 17%;
+  margin-bottom: 0px;
+  margin-left: 42%;
+  z-index: -1;
   }
 
   .form{
     text-align: center;
     padding-top: 30px;
     padding-bottom: 60px
+  }
+
+  .over{
+     z-index: -11;
+     position: relative;
   }
 
   .select-box{

@@ -140,14 +140,14 @@ printPage = () => {
     render(){
         
         return (
-            <div id="element-to-print" class="premium-message" >
+            <div  class="premium-message head" >
                 <h3 class="premium-header">Premium Results</h3>
                     <p >
                     Based on your sales, you can expect roughly the following total premium
                     amounts per year.  Premium is calculated as a total premium and divided 
                     between Admin (3%), EFI Licensing Fee (10%), and Worker Bonus (87%).
                     </p>
-            <div>
+            <div class="table">
             
                 {this.renderTable()}
 
@@ -155,20 +155,23 @@ printPage = () => {
 
             </div>
 
-              <div style={{height: 500}}>
+              <div class="charts" style={{height: 500}}>
                 <div style={{height:400}}   className="pie">
                 <h6 class='title'>Premium Distribution Breakdown</h6>
                 <PieChart  />
                 </div>
                 <div class="bar">
                 <BarChart  data={this.props.data} commoditiesSold={this.props.commoditiesSold} percentage={this.props.percentage} prices={this.props.prices} />
-                
+
                 </div>
                 <div>
-              <button  id="start-calculator-button" className="btn-large generate-results-button" onClick={this.printPage}>Save to PDF</button>
               </div>
+              
             </div>
+            <button  id="start-calculator-button" className="btn-large generate-results-button year-print" onClick={this.printPage}>Save to PDF</button>
+
             </div>
+            
         )
     } 
 }
