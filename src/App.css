@@ -24,6 +24,10 @@
     page-break-before: always;
     margin-top: 30px
   }
+
+  @page{
+    size: landscape; 
+  }
 }
 
 .App {

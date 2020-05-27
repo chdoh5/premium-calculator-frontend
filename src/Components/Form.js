@@ -323,19 +323,19 @@ calculateYearly = () => {
 
 handleSubmit = (e) => {
 
-    // const reqObj = {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify({
-    //         generated_at: new Date().toString()
-    //     })
-    // }
-    // e.preventDefault()
-    // fetch('http://localhost:3000/results', reqObj)
-    //     .then(resp => resp.json())
-    //     .then(newResult => this.generateResults(e))
+    const reqObj = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            generated_at: new Date().toString()
+        })
+    }
+    e.preventDefault()
+    fetch('https://efi-premium-calc-api.herokuapp.com/results', reqObj)
+        .then(resp => resp.json())
+        .then(newResult => this.generateResults(e))
     if(this.state.timingQuestion === "month"){
         this.calculateYearly()
         this.generateResults(e)

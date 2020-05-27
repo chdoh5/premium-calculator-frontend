@@ -168,7 +168,7 @@ printPage = () => {
               </div>
               
             </div>
-            <button  id="start-calculator-button" className="btn-large generate-results-button year-print" onClick={this.printPage}>Save to PDF</button>
+            <button  id="start-calculator-button" className="btn-large generate-results-button year-print" onClick={this.printPage}>Print/Save to PDF</button>
 
             </div>
             
