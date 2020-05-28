@@ -1,6 +1,6 @@
 # EFI Premium Calculator (Frontend)
 
-You can check out the current version here! - <a href="www.efipremiumcalculator.com">www.efipremiumcalculator.com </a>
+You can check out the current version here! - <a href="www.efipremiumcalculator.com">www.EFIPremiumCalculator.com </a>
 
 A client acquisition experience for <a href="https://equitablefood.org/about-efi/"> Equitable Food Initiative</a> - the largest ethical-labor farm certification agency in the US. The experience guides farm operators to estimate their return premium from partnering with EFI.  Solo project.
 
