@@ -465,7 +465,7 @@ if(this.state.submitted === false){
             <label class="form-label">
                 Enter weight of commodities sold  {this.state.timingQuestion==="year" ? "annually" : "per month" }
             <br />
-            <sup style={{fontSize:16}}>Enter "0" if nothing sold that month</sup>
+            {this.state.timingQuestion==="month" ? <sup style={{fontSize:16}}>Enter "0" if nothing sold that month</sup> : null }
             </label>
             <br /><br/>
             <table class="center centered striped">

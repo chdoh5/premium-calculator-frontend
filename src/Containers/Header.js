@@ -15,7 +15,6 @@ class Header extends React.Component {
               <div class="nav-wrapper section nav">
                 <ul class="right hide-on-med-and-down">
                   <li><a href="sass.html">Español</a></li>
-                  <li><a href="badges.html">Login</a></li>
                 </ul>
                 <img class=" logo " src="https://equitablefood.org/wp-content/uploads/logo-copy.png"></img>
               </div>
